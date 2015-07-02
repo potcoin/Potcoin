@@ -18,7 +18,7 @@ packages:
 - "bsdmainutils"
 reference_datetime: "2014-04-01 00:00:00"
 remotes:
-- "url": "https://github.com/potcoin-project/potcoin.git"
+- "url": "https://github.com/potcoin/potcoinPOS.git"
   "dir": "potcoin"
 files:
 - "bitcoin-deps-linux32-gitian-r3.zip"
