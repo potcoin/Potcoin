@@ -11,11 +11,11 @@ Copyright (c) 2015 Potcoin Developers
 What is Potcoin?
 ----------------
 
-On 2nd February 2015 at block 260,800 Potcoin transitioned to Proof-of-Stake-Velocity (PoSV)
+On August 1st 2015 at block 950,800 Potcoin transitioned to Proof-of-Stake-Velocity (PoSV)
 algorithm which replaced Proof-of-Work (PoW).
  - 40 Second block target
- - just under 270 million mined in PoW phase
- - 7% annual interest in PoSV phase
+ - just under 220 million mined in PoW phase
+ - 5% annual interest in PoSV phase
  - difficulty retarget: every block using Kimoto's gravity well
  - white paper: http://www.potcoin.com/papers/PoSV.pdf
  - FAQs paper: http://www.potcoin.com/papers/PoSV_FAQ.pdf
