@@ -1128,24 +1128,24 @@ int64 GetBlockValue(int nHeight, int64 nFees)
     int64 nSubsidy = 420 * COIN;
 
 
-	if(nHeight > 900000)
+	if(nHeight > 920000)
 	{
     nSubsidy = 50 * COIN;
 
 	// Hyper halving for POSv transition
-	if(nHeight > 910800)
+	if(nHeight > 930800)
 	  {
         nSubsidy = 25 * COIN;
     }
-	if(nHeight > 921600)
+	if(nHeight > 941600)
 	  {
         nSubsidy = 12 * COIN;
     }
-  if(nHeight > 932400)
+  if(nHeight > 952400)
     {
         nSubsidy = 6 * COIN;
     }
-  if(nHeight > 943200)
+  if(nHeight > 963200)
     {
         nSubsidy = 3 * COIN;
     }
