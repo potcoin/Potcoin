@@ -17,8 +17,6 @@ algorithm which replaced Proof-of-Work (PoW).
  - just under 220 million mined in PoW phase
  - 5% annual interest in PoSV phase
  - difficulty retarget: every block using Kimoto's gravity well
- - white paper: http://www.potcoin.com/papers/PoSV.pdf
- - FAQs paper: http://www.potcoin.com/papers/PoSV_FAQ.pdf
 
 Potcoin first started in January 2014 as a variant of Litecoin using Scrypt as
 the Proof-of-Work (PoW) hash algorithm.
