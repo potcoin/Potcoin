@@ -29,19 +29,19 @@ static const int DATABASE_VERSION = 80000;
 // nTime field added to CTransaction
 // vchBlockSig field added to CBlock  1000000
 static const int POW_CLIENT_VERSION = 80701;
-static const int POW_PROTOCOL_VERSION = 70002;
+static const int POW_PROTOCOL_VERSION = 70003;
 static const int POW_TX_VERSION = 1;
 static const int POW_BLOCK_VERSION = 2;
 
 // network protocol versioning
 //
-static const int PROTOCOL_VERSION = 70002;
+static const int PROTOCOL_VERSION = 70003;
 
 // intial proto version, to be increased after version/verack negotiation
 static const int INIT_PROTO_VERSION = 209;
 
 // disconnect from peers older than this proto version
-static const int MIN_PEER_PROTO_VERSION = 70002;
+static const int MIN_PEER_PROTO_VERSION = 70003;
 
 // nTime field added to CAddress, starting with this version;
 // if possible, avoid requesting addresses nodes older than this
