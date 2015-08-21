@@ -1470,11 +1470,48 @@ printf("After: %08x %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_s
 return bnNew.GetCompact();
 }
 
+unsigned int static GetPoSDifficulty(const CBlockIndex* pindexLast, const CBlockHeader *pblock)
+{
+	printf("New PoS Difficulty Protocol ACTIVE");
+	
+	CBigNum bnTargetLimit = bnProofOfWorkLimit;
+	
+	const CBlockIndex* pindexPrev = GetLastBlockIndex(pindexLast, true);
+    const CBlockIndex* pindexPrevPrev = GetLastBlockIndex(pindexPrev->pprev, true);
+	
+	// Reset difficulty for PoS switchover
+	if (pindexLast->nHeight < LAST_POW_BLOCK + 50)
+		return bnTargetLimit.GetCompact();
+
+    int64 nActualSpacing = pindexPrev->GetBlockTime() - pindexPrevPrev->GetBlockTime();
+	
+	 // Normalize extreme values
+	 if (nActualSpacing < 1)
+	 	nActualSpacing = 1;
+	 if (nActualSpacing > 2200)
+	 	nActualSpacing = 2200;
+
+    // ppcoin: target change every block
+    // ppcoin: retarget with exponential moving toward target spacing
+    CBigNum bnNew;
+    bnNew.SetCompact(pindexPrev->nBits);
+    bnNew *= ((nInterval - 1) * nTargetSpacing + nActualSpacing + nActualSpacing);
+    bnNew /= ((nInterval + 1) * nTargetSpacing);
+
+    if (bnNew > bnTargetLimit)
+        bnNew = bnTargetLimit;
+
+    return bnNew.GetCompact();
+}
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock)
 {
     // always mine PoW blocks at the lowest diff on testnet
     if (fTestNet && pindexLast->nHeight < LAST_POW_BLOCK)
         return bnProofOfWorkLimit.GetCompact();
+	
+	// New mode for PoS
+	if (pindexLast->nHeight >= LAST_POW_BLOCK)
+		return GetPoSDifficulty(pindexLast, pblock);
 
     int DiffMode = 1;
     if (fTestNet) {
