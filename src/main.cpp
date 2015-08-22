@@ -1406,7 +1406,7 @@ return KimotoGravityWell(pindexLast, pblock, BlocksTargetSpacing, PastBlocksMin,
 }
 unsigned int static GetNextWorkRequired_V3(const CBlockIndex* pindexLast, const CBlockHeader *pblock){
 unsigned int nProofOfWorkLimit = bnProofOfWorkLimit.GetCompact();
-int nHeight = pindexLast->nHeight + 1;
+//int nHeight = pindexLast->nHeight + 1;
 int64 retargetTimespan = nTargetTimespan;
 int64 retargetSpacing = nTargetSpacing;
 int64 retargetInterval = nInterval;
