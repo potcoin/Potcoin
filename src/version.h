@@ -30,7 +30,7 @@ static const int DATABASE_VERSION = 80000;
 // vchBlockSig field added to CBlock  1000000
 static const int POW_CLIENT_VERSION = 80701;
 static const int POW_PROTOCOL_VERSION = 70002;
-static const int POW_TX_VERSION = 1;
+static const int POW_TX_VERSION = 3;
 static const int POW_BLOCK_VERSION = 2;
 
 // network protocol versioning
