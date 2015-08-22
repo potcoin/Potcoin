@@ -31,7 +31,7 @@ static const int DATABASE_VERSION = 80000;
 static const int POW_CLIENT_VERSION = 80701;
 static const int POW_PROTOCOL_VERSION = 70002;
 static const int POW_TX_VERSION = 3;
-static const int POW_BLOCK_VERSION = 2;
+static const int POW_BLOCK_VERSION = 1;
 
 // network protocol versioning
 //
