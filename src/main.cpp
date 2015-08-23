@@ -1315,176 +1315,175 @@ return bnNew.GetCompact();
 
 unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const CBlockHeader *pblock, uint64 TargetBlocksSpacingSeconds, uint64 PastBlocksMin, uint64 PastBlocksMax) {
 /* current difficulty formula, megacoin - kimoto gravity well */
-const CBlockIndex *BlockLastSolved = pindexLast;
-const CBlockIndex *BlockReading = pindexLast;
-const CBlockHeader *BlockCreating = pblock;
-BlockCreating = BlockCreating;
-uint64 PastBlocksMass = 0;
-int64 PastRateActualSeconds = 0;
-int64 PastRateTargetSeconds = 0;
-double PastRateAdjustmentRatio = double(1);
-CBigNum PastDifficultyAverage;
-CBigNum PastDifficultyAveragePrev;
-double EventHorizonDeviation;
-double EventHorizonDeviationFast;
-double EventHorizonDeviationSlow;
-if (BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || (uint64)BlockLastSolved->nHeight < PastBlocksMin) {
-return bnProofOfWorkLimit.GetCompact();
+    const CBlockIndex *BlockLastSolved = pindexLast;
+    const CBlockIndex *BlockReading = pindexLast;
+    const CBlockHeader *BlockCreating = pblock;
+    BlockCreating = BlockCreating;
+    uint64 PastBlocksMass = 0;
+    int64 PastRateActualSeconds = 0;
+    int64 PastRateTargetSeconds = 0;
+    double PastRateAdjustmentRatio = double(1);
+    CBigNum PastDifficultyAverage;
+    CBigNum PastDifficultyAveragePrev;
+    double EventHorizonDeviation;
+    double EventHorizonDeviationFast;
+    double EventHorizonDeviationSlow;
+    if (BlockLastSolved == NULL || BlockLastSolved->nHeight == 0 || (uint64)BlockLastSolved->nHeight < PastBlocksMin) {
+        return bnProofOfWorkLimit.GetCompact();
+    }
+    int64 LatestBlockTime = BlockLastSolved->GetBlockTime();
+    for (unsigned int i = 1; BlockReading && BlockReading->nHeight > 0; i++) {
+        if (PastBlocksMax > 0 && i > PastBlocksMax) {
+        break;
+        }
+        PastBlocksMass++;
+        /* Patched with http://pastebin.com/PY6NHGzu by Sygma (manually) */
+        if (i == 1) {
+            PastDifficultyAverage.SetCompact(BlockReading->nBits);
+        } else {
+            PastDifficultyAverage = ((CBigNum().SetCompact(BlockReading->nBits) - PastDifficultyAveragePrev) / i) + PastDifficultyAveragePrev;
+        }
+        PastDifficultyAveragePrev = PastDifficultyAverage;
+        if (LatestBlockTime < BlockReading->GetBlockTime()) {
+            if (BlockReading->nHeight > 158000){ // HARD Fork block number
+                LatestBlockTime = BlockReading->GetBlockTime();
+            }
+        }
+        PastRateActualSeconds = LatestBlockTime - BlockReading->GetBlockTime();
+        PastRateTargetSeconds = TargetBlocksSpacingSeconds * PastBlocksMass;
+        PastRateAdjustmentRatio = double(1);
+        if (BlockReading->nHeight > 158000) { // HARD Fork block number
+            if (PastRateActualSeconds < 1) {
+            PastRateActualSeconds = 1;
+            }
+        } else {
+            if (PastRateActualSeconds < 0) {
+            PastRateActualSeconds = 0;
+            }
+        }
+        if (PastRateActualSeconds != 0 && PastRateTargetSeconds != 0) {
+            PastRateAdjustmentRatio = double(PastRateTargetSeconds) / double(PastRateActualSeconds);
+        }
+        EventHorizonDeviation = 1 + (0.7084 * pow((double(PastBlocksMass)/double(144)), -1.228));
+        EventHorizonDeviationFast = EventHorizonDeviation;
+        EventHorizonDeviationSlow = 1 / EventHorizonDeviation;
+        if (PastBlocksMass >= PastBlocksMin) {
+            if ((PastRateAdjustmentRatio <= EventHorizonDeviationSlow) || (PastRateAdjustmentRatio >= EventHorizonDeviationFast)) {
+                assert(BlockReading);
+            break;
+            }
+        }
+        if (BlockReading->pprev == NULL) {
+            assert(BlockReading);
+        break;
+        }
+        BlockReading = BlockReading->pprev;
+    }
+    CBigNum bnNew(PastDifficultyAverage);
+    if (PastRateActualSeconds != 0 && PastRateTargetSeconds != 0) {
+        bnNew *= PastRateActualSeconds;
+        bnNew /= PastRateTargetSeconds;
+    }
+    if (bnNew > bnProofOfWorkLimit) {
+        bnNew = bnProofOfWorkLimit;
+    }
+    /// debug print
+    printf("Difficulty Retarget - Kimoto Gravity Well\n");
+    printf("PastRateAdjustmentRatio = %g\n", PastRateAdjustmentRatio);
+    printf("Before: %08x %s\n", BlockLastSolved->nBits, CBigNum().SetCompact(BlockLastSolved->nBits).getuint256().ToString().c_str());
+    printf("After: %08x %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
+    return bnNew.GetCompact();
 }
-int64 LatestBlockTime = BlockLastSolved->GetBlockTime();
-for (unsigned int i = 1; BlockReading && BlockReading->nHeight > 0; i++) {
-if (PastBlocksMax > 0 && i > PastBlocksMax) {
-break;
-}
-PastBlocksMass++;
-/* Patched with http://pastebin.com/PY6NHGzu by Sygma (manually) */
-if (i == 1) {
-PastDifficultyAverage.SetCompact(BlockReading->nBits);
-} else {
-PastDifficultyAverage = ((CBigNum().SetCompact(BlockReading->nBits) - PastDifficultyAveragePrev) / i) + PastDifficultyAveragePrev;
-}
-PastDifficultyAveragePrev = PastDifficultyAverage;
-if (LatestBlockTime < BlockReading->GetBlockTime()) {
-if (BlockReading->nHeight > 158000){ // HARD Fork block number
-LatestBlockTime = BlockReading->GetBlockTime();
-}
-}
-PastRateActualSeconds = LatestBlockTime - BlockReading->GetBlockTime();
-PastRateTargetSeconds = TargetBlocksSpacingSeconds * PastBlocksMass;
-PastRateAdjustmentRatio = double(1);
-if (BlockReading->nHeight > 158000) { // HARD Fork block number
-if (PastRateActualSeconds < 1) {
-PastRateActualSeconds = 1;
-}
-} else {
-if (PastRateActualSeconds < 0) {
-PastRateActualSeconds = 0;
-}
-}
-if (PastRateActualSeconds != 0 && PastRateTargetSeconds != 0) {
-PastRateAdjustmentRatio = double(PastRateTargetSeconds) / double(PastRateActualSeconds);
-}
-EventHorizonDeviation = 1 + (0.7084 * pow((double(PastBlocksMass)/double(144)), -1.228));
-EventHorizonDeviationFast = EventHorizonDeviation;
-EventHorizonDeviationSlow = 1 / EventHorizonDeviation;
-if (PastBlocksMass >= PastBlocksMin) {
-if ((PastRateAdjustmentRatio <= EventHorizonDeviationSlow) || (PastRateAdjustmentRatio >= EventHorizonDeviationFast)) {
-assert(BlockReading);
-break;
-}
-}
-if (BlockReading->pprev == NULL) {
-assert(BlockReading);
-break;
-}
-BlockReading = BlockReading->pprev;
-}
-CBigNum bnNew(PastDifficultyAverage);
-if (PastRateActualSeconds != 0 && PastRateTargetSeconds != 0) {
-bnNew *= PastRateActualSeconds;
-bnNew /= PastRateTargetSeconds;
-}
-if (bnNew > bnProofOfWorkLimit) {
-bnNew = bnProofOfWorkLimit;
-}
-/// debug print
-printf("Difficulty Retarget - Kimoto Gravity Well\n");
-printf("PastRateAdjustmentRatio = %g\n", PastRateAdjustmentRatio);
-printf("Before: %08x %s\n", BlockLastSolved->nBits, CBigNum().SetCompact(BlockLastSolved->nBits).getuint256().ToString().c_str());
-printf("After: %08x %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
-return bnNew.GetCompact();
-}
-unsigned int static GetNextWorkRequired_V2(const CBlockIndex* pindexLast, const CBlockHeader *pblock)
-{
-static const int64 BlocksTargetSpacing = 40; // 2.5 minutes
-unsigned int TimeDaySeconds = 60 * 60 * 24;
-int64 PastSecondsMin = TimeDaySeconds * 0.01;
-int64 PastSecondsMax = TimeDaySeconds * 0.14;
-uint64 PastBlocksMin = PastSecondsMin / BlocksTargetSpacing;
-uint64 PastBlocksMax = PastSecondsMax / BlocksTargetSpacing;
-return KimotoGravityWell(pindexLast, pblock, BlocksTargetSpacing, PastBlocksMin, PastBlocksMax);
+unsigned int static GetNextWorkRequired_V2(const CBlockIndex* pindexLast, const CBlockHeader *pblock) {
+    static const int64 BlocksTargetSpacing = 40; // 2.5 minutes
+    unsigned int TimeDaySeconds = 60 * 60 * 24;
+    int64 PastSecondsMin = TimeDaySeconds * 0.01;
+    int64 PastSecondsMax = TimeDaySeconds * 0.14;
+    uint64 PastBlocksMin = PastSecondsMin / BlocksTargetSpacing;
+    uint64 PastBlocksMax = PastSecondsMax / BlocksTargetSpacing;
+    return KimotoGravityWell(pindexLast, pblock, BlocksTargetSpacing, PastBlocksMin, PastBlocksMax);
 }
 unsigned int static GetNextWorkRequired_V3(const CBlockIndex* pindexLast, const CBlockHeader *pblock){
-unsigned int nProofOfWorkLimit = bnProofOfWorkLimit.GetCompact();
-int nHeight = pindexLast->nHeight + 1;
-int64 retargetTimespan = nTargetTimespan;
-int64 retargetSpacing = nTargetSpacing;
-int64 retargetInterval = nInterval;
-retargetInterval = nTargetTimespanNEW / nTargetSpacing;
-retargetTimespan = nTargetTimespanNEW;
-// Genesis block
-if (pindexLast == NULL)
-return nProofOfWorkLimit;
-// Only change once per interval
-if ((pindexLast->nHeight+1) % retargetInterval != 0)
-{
-// Special difficulty rule for testnet:
-if (fTestNet)
-{
-// If the new block's timestamp is more than 2* nTargetSpacing minutes
-// then allow mining of a min-difficulty block.
-if (pblock->nTime > pindexLast->nTime + retargetSpacing*2)
-return nProofOfWorkLimit;
-else
-{
-// Return the last non-special-min-difficulty-rules-block
-const CBlockIndex* pindex = pindexLast;
-while (pindex->pprev && pindex->nHeight % retargetInterval != 0 && pindex->nBits == nProofOfWorkLimit)
-pindex = pindex->pprev;
-return pindex->nBits;
-}
-}
-return pindexLast->nBits;
-}
-// Dogecoin: This fixes an issue where a 51% attack can change difficulty at will.
-// Go back the full period unless it's the first retarget after genesis. Code courtesy of Art Forz
-int blockstogoback = retargetInterval-1;
-if ((pindexLast->nHeight+1) != retargetInterval)
-blockstogoback = retargetInterval;
-// Go back by what we want to be 14 days worth of blocks
-const CBlockIndex* pindexFirst = pindexLast;
-for (int i = 0; pindexFirst && i < blockstogoback; i++)
-pindexFirst = pindexFirst->pprev;
-assert(pindexFirst);
-// Limit adjustment step
-int64 nActualTimespan = pindexLast->GetBlockTime() - pindexFirst->GetBlockTime();
-printf(" nActualTimespan = %"PRI64d" before bounds\n", nActualTimespan);
-CBigNum bnNew;
-bnNew.SetCompact(pindexLast->nBits);
-//DigiShield implementation - thanks to RealSolid & WDC for this code
-// amplitude filter - thanks to daft27 for this code
-nActualTimespan = retargetTimespan + (nActualTimespan - retargetTimespan)/8;
-printf("DIGISHIELD RETARGET\n");
-if (nActualTimespan < (retargetTimespan - (retargetTimespan/4)) ) nActualTimespan = (retargetTimespan - (retargetTimespan/4));
-if (nActualTimespan > (retargetTimespan + (retargetTimespan/2)) ) nActualTimespan = (retargetTimespan + (retargetTimespan/2));
-// Retarget
-bnNew *= nActualTimespan;
-bnNew /= retargetTimespan;
-if (bnNew > bnProofOfWorkLimit)
-bnNew = bnProofOfWorkLimit;
-/// debug print
-printf("GetNextWorkRequired RETARGET\n");
-printf("nTargetTimespan = %"PRI64d" nActualTimespan = %"PRI64d"\n", retargetTimespan, nActualTimespan);
-printf("Before: %08x %s\n", pindexLast->nBits, CBigNum().SetCompact(pindexLast->nBits).getuint256().ToString().c_str());
-printf("After: %08x %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
-return bnNew.GetCompact();
+    unsigned int nProofOfWorkLimit = bnProofOfWorkLimit.GetCompact();
+    int64 retargetTimespan = nTargetTimespan;
+    int64 retargetSpacing = nTargetSpacing;
+    int64 retargetInterval = nInterval;
+    retargetInterval = nTargetTimespanNEW / nTargetSpacing;
+    retargetTimespan = nTargetTimespanNEW;
+    // Genesis block
+    if (pindexLast == NULL)
+        return nProofOfWorkLimit;
+    // Only change once per interval
+    if ((pindexLast->nHeight+1) % retargetInterval != 0)
+    {
+        // Special difficulty rule for testnet:
+        if (fTestNet)
+        {
+        // If the new block's timestamp is more than 2* nTargetSpacing minutes
+        // then allow mining of a min-difficulty block.
+        if (pblock->nTime > pindexLast->nTime + retargetSpacing*2)
+            return nProofOfWorkLimit;
+        else
+        {
+            // Return the last non-special-min-difficulty-rules-block
+            const CBlockIndex* pindex = pindexLast;
+            while (pindex->pprev && pindex->nHeight % retargetInterval != 0 && pindex->nBits == nProofOfWorkLimit)
+                pindex = pindex->pprev;
+            return pindex->nBits;
+        }
+        }
+        return pindexLast->nBits;
+    }
+    // Dogecoin: This fixes an issue where a 51% attack can change difficulty at will.
+    // Go back the full period unless it's the first retarget after genesis. Code courtesy of Art Forz
+    int blockstogoback = retargetInterval-1;
+    if ((pindexLast->nHeight+1) != retargetInterval)
+    blockstogoback = retargetInterval;
+    // Go back by what we want to be 14 days worth of blocks
+    const CBlockIndex* pindexFirst = pindexLast;
+    for (int i = 0; pindexFirst && i < blockstogoback; i++)
+    pindexFirst = pindexFirst->pprev;
+    assert(pindexFirst);
+    // Limit adjustment step
+    int64 nActualTimespan = pindexLast->GetBlockTime() - pindexFirst->GetBlockTime();
+    printf(" nActualTimespan = %"PRI64d" before bounds\n", nActualTimespan);
+    CBigNum bnNew;
+    bnNew.SetCompact(pindexLast->nBits);
+    //DigiShield implementation - thanks to RealSolid & WDC for this code
+    // amplitude filter - thanks to daft27 for this code
+    nActualTimespan = retargetTimespan + (nActualTimespan - retargetTimespan)/8;
+    printf("DIGISHIELD RETARGET\n");
+    if (nActualTimespan < (retargetTimespan - (retargetTimespan/4)) ) nActualTimespan = (retargetTimespan - (retargetTimespan/4));
+    if (nActualTimespan > (retargetTimespan + (retargetTimespan/2)) ) nActualTimespan = (retargetTimespan + (retargetTimespan/2));
+    // Retarget
+    bnNew *= nActualTimespan;
+    bnNew /= retargetTimespan;
+    if (bnNew > bnProofOfWorkLimit)
+    bnNew = bnProofOfWorkLimit;
+    /// debug print
+    printf("GetNextWorkRequired RETARGET\n");
+    printf("nTargetTimespan = %"PRI64d" nActualTimespan = %"PRI64d"\n", retargetTimespan, nActualTimespan);
+    printf("Before: %08x %s\n", pindexLast->nBits, CBigNum().SetCompact(pindexLast->nBits).getuint256().ToString().c_str());
+    printf("After: %08x %s\n", bnNew.GetCompact(), bnNew.getuint256().ToString().c_str());
+    return bnNew.GetCompact();
 }
 
 unsigned int static GetPoSDifficulty(const CBlockIndex* pindexLast, const CBlockHeader *pblock)
 {
-	printf("New PoS Difficulty Protocol ACTIVE");
-	
+    if (fDebug)
+	      printf("New PoS Difficulty Protocol ACTIVE");
+
 	CBigNum bnTargetLimit = bnProofOfWorkLimit;
-	
+
 	const CBlockIndex* pindexPrev = GetLastBlockIndex(pindexLast, true);
     const CBlockIndex* pindexPrevPrev = GetLastBlockIndex(pindexPrev->pprev, true);
-	
+
 	// Reset difficulty for PoS switchover
 	if (pindexLast->nHeight < LAST_POW_BLOCK + 50)
 		return bnTargetLimit.GetCompact();
 
     int64 nActualSpacing = pindexPrev->GetBlockTime() - pindexPrevPrev->GetBlockTime();
-	
+
 	 // Normalize extreme values
 	 if (nActualSpacing < 1)
 	 	nActualSpacing = 1;
@@ -1508,7 +1507,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
     // always mine PoW blocks at the lowest diff on testnet
     if (fTestNet && pindexLast->nHeight < LAST_POW_BLOCK)
         return bnProofOfWorkLimit.GetCompact();
-	
+
 	// New mode for PoS
 	if (pindexLast->nHeight >= LAST_POW_BLOCK)
 		return GetPoSDifficulty(pindexLast, pblock);
