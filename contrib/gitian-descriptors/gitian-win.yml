@@ -19,7 +19,7 @@ packages:
 
 reference_datetime: "2014-04-01 00:00:00"
 remotes:
-- "url": "https://github.com/cryptovein/Potcoin.git"
+- "url": "https://github.com/potcoin/Potcoin.git"
   "dir": "potcoin"
 files:
 - "qt-win32-5.2.0-gitian-r2.zip"
