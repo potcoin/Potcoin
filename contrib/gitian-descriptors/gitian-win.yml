@@ -1,5 +1,5 @@
 ---
-name: "potcoin"
+name: "cheebacoin"
 suites:
 - "precise"
 architectures:
@@ -19,8 +19,8 @@ packages:
 
 reference_datetime: "2014-04-01 00:00:00"
 remotes:
-- "url": "https://github.com/potcoin/Potcoin.git"
-  "dir": "potcoin"
+- "url": "https://github.com/CheebaCoin/Cheebacoinz.git"
+  "dir": "cheebacoin"
 files:
 - "qt-win32-5.2.0-gitian-r2.zip"
 - "qt-win64-5.2.0-gitian-r2.zip"
@@ -62,8 +62,8 @@ script: |
     unzip $INDIR/bitcoin-deps-win${BITS}-gitian-r10.zip
     if [ "$NEEDDIST" == "1" ]; then
       # Make source code archive which is architecture independent so it only needs to be done once
-      cd $HOME/build/potcoin
-      DISTNAME="potcoin-src.tar.gz"
+      cd $HOME/build/cheebacoin
+      DISTNAME="cheebacoin-src.tar.gz"
       git archive HEAD | gzip > $DISTNAME
       NEEDDIST=0
     fi
@@ -71,31 +71,31 @@ script: |
     cd $BUILDDIR
     mkdir -p distsrc
     cd distsrc
-    tar -xf $HOME/build/potcoin/$DISTNAME
+    tar -xf $HOME/build/cheebacoin/$DISTNAME
     # This is a temporary fix until 60dc589477f963d9848be7bb7fb0589a30deb912 is merged
-    sed -i 's/qcncodecs qjpcodecs qtwcodecs qkrcodecs//g' potcoin-qt.pro
+    sed -i 's/qcncodecs qjpcodecs qtwcodecs qkrcodecs//g' cheebacoin-qt.pro
     sed -i 's/Q_IMPORT_PLUGIN.*codecs.*//g' src/qt/bitcoin.cpp
     sed -i 's/Q_IMPORT_PLUGIN.*qtaccessiblewidgets.*/Q_IMPORT_PLUGIN(AccessibleFactory)\nQ_IMPORT_PLUGIN(QWindowsIntegrationPlugin);/g' src/qt/bitcoin.cpp
 
     export LD_PRELOAD=/usr/lib/faketime/libfaketime.so.1
     export FAKETIME=$REFERENCE_DATETIME
-    $STAGING/host/bin/qmake -spec win32-g++ MINIUPNPC_LIB_PATH=$STAGING MINIUPNPC_INCLUDE_PATH=$STAGING BDB_LIB_PATH=$STAGING BDB_INCLUDE_PATH=$STAGING BOOST_LIB_PATH=$STAGING BOOST_INCLUDE_PATH=$STAGING BOOST_LIB_SUFFIX=-mt-s BOOST_THREAD_LIB_SUFFIX=_win32-mt-s OPENSSL_LIB_PATH=$STAGING OPENSSL_INCLUDE_PATH=$STAGING QRENCODE_LIB_PATH=$STAGING QRENCODE_INCLUDE_PATH=$STAGING USE_QRCODE=1 INCLUDEPATH=$STAGING DEFINES=BOOST_THREAD_USE_LIB BITCOIN_NEED_QT_PLUGINS=1 QMAKE_LRELEASE=lrelease QMAKE_CXXFLAGS=-frandom-seed=potcoin USE_BUILD_INFO=1 USE_SSE2=1
+    $STAGING/host/bin/qmake -spec win32-g++ MINIUPNPC_LIB_PATH=$STAGING MINIUPNPC_INCLUDE_PATH=$STAGING BDB_LIB_PATH=$STAGING BDB_INCLUDE_PATH=$STAGING BOOST_LIB_PATH=$STAGING BOOST_INCLUDE_PATH=$STAGING BOOST_LIB_SUFFIX=-mt-s BOOST_THREAD_LIB_SUFFIX=_win32-mt-s OPENSSL_LIB_PATH=$STAGING OPENSSL_INCLUDE_PATH=$STAGING QRENCODE_LIB_PATH=$STAGING QRENCODE_INCLUDE_PATH=$STAGING USE_QRCODE=1 INCLUDEPATH=$STAGING DEFINES=BOOST_THREAD_USE_LIB BITCOIN_NEED_QT_PLUGINS=1 QMAKE_LRELEASE=lrelease QMAKE_CXXFLAGS=-frandom-seed=cheebacoin USE_BUILD_INFO=1 USE_SSE2=1
     make $MAKEOPTS
-    $HOST-strip release/potcoin-qt.exe
+    $HOST-strip release/cheebacoin-qt.exe
     #
     cd src
-    make -f makefile.linux-mingw $MAKEOPTS DEPSDIR=$STAGING potcoind.exe USE_UPNP=0 DEBUGFLAGS="-frandom-seed=potcoin" USE_SSE2=1
-    $HOST-strip potcoind.exe
+    make -f makefile.linux-mingw $MAKEOPTS DEPSDIR=$STAGING cheebacoind.exe USE_UPNP=0 DEBUGFLAGS="-frandom-seed=cheebacoin" USE_SSE2=1
+    $HOST-strip cheebacoind.exe
     cd ..
     mkdir nsis
     cd nsis
-    tar -xf $HOME/build/potcoin/$DISTNAME
+    tar -xf $HOME/build/cheebacoin/$DISTNAME
     cd src
     mkdir ../release
     cp ../../release/* ../release/
     cp ../../src/*.exe .
     makensis ../share/setup.nsi
-    cp -f ../share/potcoin-*setup*.exe $BINDIR/
+    cp -f ../share/cheebacoin-*setup*.exe $BINDIR/
     unset LD_PRELOAD
     unset FAKETIME
   done # for BITS in
@@ -105,5 +105,5 @@ script: |
   rm -rf $TEMPDIR
   mkdir -p $TEMPDIR
   cd $TEMPDIR
-  tar -xvf $HOME/build/potcoin/$DISTNAME | sort | tar --no-recursion -cT /dev/stdin --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 --mtime="$REFERENCE_DATETIME" | gzip -n > $OUTDIR/src/$DISTNAME
+  tar -xvf $HOME/build/cheebacoin/$DISTNAME | sort | tar --no-recursion -cT /dev/stdin --mode='u+rw,go+r-w,a+X' --owner=0 --group=0 --mtime="$REFERENCE_DATETIME" | gzip -n > $OUTDIR/src/$DISTNAME
 
