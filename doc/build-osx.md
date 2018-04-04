@@ -1,4 +1,4 @@
-Mac OS X potcoind build instructions
+Mac OS X cheebacoind build instructions
 ====================================
 
 Authors
@@ -26,7 +26,7 @@ Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.
 Notes
 -----
 
-See `doc/readme-qt.rst` for instructions on building Potcoin-Qt, the
+See `doc/readme-qt.rst` for instructions on building Cheebacoin-Qt, the
 graphical user interface.
 
 Tested on OS X 10.5 through 10.8 on Intel processors only. PPC is not
@@ -72,14 +72,14 @@ Installing the dependencies using MacPorts is very straightforward.
 
     sudo port install boost db48@+no_java openssl miniupnpc
 
-### Building `potcoind`
+### Building `cheebacoind`
 
 1. Clone the github tree to get the source code and go into the directory.
 
-        git clone git@github.com:potcoin/potcoin.git potcoin
-        cd potcoin
+        git clone git@github.com:cheebacoin/cheebacoin.git cheebacoin
+        cd cheebacoin
 
-2.  Build potcoind:
+2.  Build cheebacoind:
 
         cd src
         make -f makefile.osx
@@ -107,12 +107,12 @@ If not, you can ensure that the Brew OpenSSL is correctly linked by running
 
 Rerunning "openssl version" should now return the correct version.
 
-### Building `potcoind`
+### Building `cheebacoind`
 
 1. Clone the github tree to get the source code and go into the directory.
 
-        git clone git@github.com:potcoin/potcoin.git potcoin
-        cd potcoin
+        git clone git@github.com:cheebacoin/cheebacoin.git cheebacoin
+        cd cheebacoin
 
 2.  Modify source in order to pick up the `openssl` library.
 
@@ -122,7 +122,7 @@ Rerunning "openssl version" should now return the correct version.
 
         patch -p1 < contrib/homebrew/makefile.osx.patch
 
-3.  Build potcoind:
+3.  Build cheebacoind:
 
         cd src
         make -f makefile.osx
@@ -134,10 +134,10 @@ Rerunning "openssl version" should now return the correct version.
 Creating a release build
 ------------------------
 
-A potcoind binary is not included in the Potcoin-Qt.app bundle. You can ignore
-this section if you are building `potcoind` for your own use.
+A cheebacoind binary is not included in the Cheebacoin-Qt.app bundle. You can ignore
+this section if you are building `cheebacoind` for your own use.
 
-If you are building `potcoind` for others, your build machine should be set up
+If you are building `cheebacoind` for others, your build machine should be set up
 as follows for maximum compatibility:
 
 All dependencies should be compiled with these flags:
@@ -156,30 +156,30 @@ As of December 2012, the `boost` port does not obey `macosx_deployment_target`.
 Download `http://gavinandresen-bitcoin.s3.amazonaws.com/boost_macports_fix.zip`
 for a fix. Some ports also seem to obey either `build_arch` or
 `macosx_deployment_target`, but not both at the same time. For example, building
-on an OS X 10.6 64-bit machine fails. Official release builds of Potcoin-Qt are
+on an OS X 10.6 64-bit machine fails. Official release builds of Cheebacoin-Qt are
 compiled on an OS X 10.6 32-bit machine to workaround that problem.
 
-Once dependencies are compiled, creating `Potcoin-Qt.app` is easy:
+Once dependencies are compiled, creating `Cheebacoin-Qt.app` is easy:
 
     make -f Makefile.osx RELEASE=1
 
 Running
 -------
 
-It's now available at `./potcoind`, provided that you are still in the `src`
+It's now available at `./cheebacoind`, provided that you are still in the `src`
 directory. We have to first create the RPC configuration file, though.
 
-Run `./potcoind` to get the filename where it should be put, or just try these
+Run `./cheebacoind` to get the filename where it should be put, or just try these
 commands:
 
-    echo -e "rpcuser=potcoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Potcoin/potcoin.conf"
-    chmod 600 "/Users/${USER}/Library/Application Support/Potcoin/potcoin.conf"
+    echo -e "rpcuser=cheebacoinrpc\nrpcpassword=$(xxd -l 16 -p /dev/urandom)" > "/Users/${USER}/Library/Application Support/Cheebacoin/cheebacoin.conf"
+    chmod 600 "/Users/${USER}/Library/Application Support/Cheebacoin/cheebacoin.conf"
 
 When next you run it, it will start downloading the blockchain, but it won't
 output anything while it's doing this. This process may take several hours.
 
 Other commands:
 
-    ./potcoind --help  # for a list of command-line options.
-    ./potcoind -daemon # to start the potcoin daemon.
-    ./potcoind help    # When the daemon is running, to get a list of RPC commands
+    ./cheebacoind --help  # for a list of command-line options.
+    ./cheebacoind -daemon # to start the cheebacoin daemon.
+    ./cheebacoind help    # When the daemon is running, to get a list of RPC commands

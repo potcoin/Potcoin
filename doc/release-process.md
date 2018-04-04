@@ -35,9 +35,9 @@ Release Process
 
 	mkdir build
 	cd build
-	git clone https://github.com/potcoin-project/potcoin.git
+	git clone https://github.com/cheebacoin-project/cheebacoin.git
 	git clone https://github.com/devrandom/gitian-builder.git
-	git clone https://github.com/potcoin-project/gitian.sigs.git
+	git clone https://github.com/cheebacoin-project/gitian.sigs.git
 
 	mkdir gitian-builder/inputs
 	cd gitian-builder/inputs
@@ -66,15 +66,15 @@ Release Process
 
  The following must be run as root:
 
-	./bin/gbuild ../potcoin/contrib/gitian-descriptors/boost-linux.yml
+	./bin/gbuild ../cheebacoin/contrib/gitian-descriptors/boost-linux.yml
 	mv build/out/boost-*.zip inputs/
-	./bin/gbuild ../potcoin/contrib/gitian-descriptors/deps-linux.yml
+	./bin/gbuild ../cheebacoin/contrib/gitian-descriptors/deps-linux.yml
 	mv build/out/bitcoin-deps-*.zip inputs/
-	./bin/gbuild ../potcoin/contrib/gitian-descriptors/boost-win.yml
+	./bin/gbuild ../cheebacoin/contrib/gitian-descriptors/boost-win.yml
 	mv build/out/boost-*.zip inputs/
-	./bin/gbuild ../potcoin/contrib/gitian-descriptors/deps-win.yml
+	./bin/gbuild ../cheebacoin/contrib/gitian-descriptors/deps-win.yml
 	mv build/out/bitcoin-deps-*.zip inputs/
-	./bin/gbuild ../potcoin/contrib/gitian-descriptors/qt-win.yml
+	./bin/gbuild ../cheebacoin/contrib/gitian-descriptors/qt-win.yml
 	mv build/out/qt-*.zip inputs/
 
 * * *
@@ -86,11 +86,11 @@ Release Process
 
 ###Update (commit) version in sources
 
- With all the VMs and dependency packages ready, it's time to make any necessary change to potcoin repository:
+ With all the VMs and dependency packages ready, it's time to make any necessary change to cheebacoin repository:
 
-	cd ../potcoin
+	cd ../cheebacoin
 
-	potcoin-qt.pro
+	cheebacoin-qt.pro
 	doc/README*
 	share/setup.nsi
 	src/clientversion.h (change CLIENT_VERSION_IS_RELEASE to true)
@@ -115,28 +115,28 @@ Release Process
 	export VERSION=1.4.0.0
 	cd ../gitian-builder
 
- Build potcoind and potcoin-qt on Linux32, Linux64:
+ Build cheebacoind and cheebacoin-qt on Linux32, Linux64:
 
-	./bin/gbuild --commit potcoin=v${VERSION} ../potcoin/contrib/gitian-descriptors/gitian-linux.yml
-	./bin/gsign --signer "$SIGNER" --release ${VERSION} --destination ../gitian.sigs/ ../potcoin/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gbuild --commit cheebacoin=v${VERSION} ../cheebacoin/contrib/gitian-descriptors/gitian-linux.yml
+	./bin/gsign --signer "$SIGNER" --release ${VERSION} --destination ../gitian.sigs/ ../cheebacoin/contrib/gitian-descriptors/gitian-linux.yml
 	pushd build/out
-	zip -r potcoin-${VERSION}-linux-gitian.zip *
-	mv potcoin-${VERSION}-linux-gitian.zip ../../
+	zip -r cheebacoin-${VERSION}-linux-gitian.zip *
+	mv cheebacoin-${VERSION}-linux-gitian.zip ../../
 	popd
 
- Build potcoind and potcoin-qt on Win32:
+ Build cheebacoind and cheebacoin-qt on Win32:
 
-	./bin/gbuild --commit potcoin=v${VERSION} ../potcoin/contrib/gitian-descriptors/gitian-win.yml
-	./bin/gsign --signer "$SIGNER" --release ${VERSION}-win --destination ../gitian.sigs/ ../potcoin/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gbuild --commit cheebacoin=v${VERSION} ../cheebacoin/contrib/gitian-descriptors/gitian-win.yml
+	./bin/gsign --signer "$SIGNER" --release ${VERSION}-win --destination ../gitian.sigs/ ../cheebacoin/contrib/gitian-descriptors/gitian-win.yml
 	pushd build/out
-	zip -r potcoin-${VERSION}-win-gitian.zip *
-	mv potcoin-${VERSION}-win-gitian.zip ../../
+	zip -r cheebacoin-${VERSION}-win-gitian.zip *
+	mv cheebacoin-${VERSION}-win-gitian.zip ../../
 	popd
 
  Build output expected:
 
-  1. linux 32-bit and 64-bit binaries + source (potcoin-${VERSION}-linux-gitian.zip)
-  2. windows 32-bit binaries, installer + source (potcoin-${VERSION}-win-gitian.zip)
+  1. linux 32-bit and 64-bit binaries + source (cheebacoin-${VERSION}-linux-gitian.zip)
+  2. windows 32-bit binaries, installer + source (cheebacoin-${VERSION}-win-gitian.zip)
   3. Gitian signatures (in gitian.sigs/${VERSION}[-win]/(your gitian key)/
 
  Commit your signature to gitian.sigs:
@@ -154,45 +154,45 @@ Release Process
  From the gitian-builder directory created above
 
 	export VERSION=1.4.0.0
-	mkdir potcoin-${VERSION}-linux-gitian
-	pushd potcoin-${VERSION}-linux-gitian
-	unzip ../potcoin-${VERSION}-linux-gitian.zip
+	mkdir cheebacoin-${VERSION}-linux-gitian
+	pushd cheebacoin-${VERSION}-linux-gitian
+	unzip ../cheebacoin-${VERSION}-linux-gitian.zip
 	mkdir gitian
-	cp ../potcoin/contrib/gitian-downloader/*.pgp ./gitian/
+	cp ../cheebacoin/contrib/gitian-downloader/*.pgp ./gitian/
 	for signer in $(ls ../gitian.sigs/${VERSION}/); do
-	 cp ../gitian.sigs/${VERSION}/${signer}/potcoin-build.assert ./gitian/${signer}-build.assert
-	 cp ../gitian.sigs/${VERSION}/${signer}/potcoin-build.assert.sig ./gitian/${signer}-build.assert.sig
+	 cp ../gitian.sigs/${VERSION}/${signer}/cheebacoin-build.assert ./gitian/${signer}-build.assert
+	 cp ../gitian.sigs/${VERSION}/${signer}/cheebacoin-build.assert.sig ./gitian/${signer}-build.assert.sig
 	done
-	zip -r potcoin-${VERSION}-linux-gitian.zip *
-	cp potcoin-${VERSION}-linux-gitian.zip ../
+	zip -r cheebacoin-${VERSION}-linux-gitian.zip *
+	cp cheebacoin-${VERSION}-linux-gitian.zip ../
 	popd
-	mkdir potcoin-${VERSION}-win-gitian
-	pushd potcoin-${VERSION}-win-gitian
-	unzip ../potcoin-${VERSION}-win-gitian.zip
+	mkdir cheebacoin-${VERSION}-win-gitian
+	pushd cheebacoin-${VERSION}-win-gitian
+	unzip ../cheebacoin-${VERSION}-win-gitian.zip
 	mkdir gitian
-	cp ../potcoin/contrib/gitian-downloader/*.pgp ./gitian/
+	cp ../cheebacoin/contrib/gitian-downloader/*.pgp ./gitian/
 	for signer in $(ls ../gitian.sigs/${VERSION}-win32/); do
-	 cp ../gitian.sigs/${VERSION}-win/${signer}/potcoin-build.assert ./gitian/${signer}-build.assert
-	 cp ../gitian.sigs/${VERSION}-win/${signer}/potcoin-build.assert.sig ./gitian/${signer}-build.assert.sig
+	 cp ../gitian.sigs/${VERSION}-win/${signer}/cheebacoin-build.assert ./gitian/${signer}-build.assert
+	 cp ../gitian.sigs/${VERSION}-win/${signer}/cheebacoin-build.assert.sig ./gitian/${signer}-build.assert.sig
 	done
-	zip -r potcoin-${VERSION}-win-gitian.zip *
-	cp potcoin-${VERSION}-win-gitian.zip ../
+	zip -r cheebacoin-${VERSION}-win-gitian.zip *
+	cp cheebacoin-${VERSION}-win-gitian.zip ../
 	popd
 
 repackage gitian builds for release as stand-alone zip/tar/installer exe
 
 **Linux .tar.gz:**
 
-	unzip potcoin-${VERSION}-linux-gitian.zip -d potcoin-${VERSION}-linux
-	tar czvf potcoin-${VERSION}-linux.tar.gz potcoin-${VERSION}-linux
-	rm -rf potcoin-${VERSION}-linux
+	unzip cheebacoin-${VERSION}-linux-gitian.zip -d cheebacoin-${VERSION}-linux
+	tar czvf cheebacoin-${VERSION}-linux.tar.gz cheebacoin-${VERSION}-linux
+	rm -rf cheebacoin-${VERSION}-linux
 
 **Windows .zip and setup.exe:**
 
-	unzip potcoin-${VERSION}-win-gitian.zip -d potcoin-${VERSION}-win
-	cp potcoin-${VERSION}-win/32/potcoin-*-setup.exe .
-	zip -r potcoin-${VERSION}-win.zip potcoin-${VERSION}-win
-	rm -rf potcoin-${VERSION}-win
+	unzip cheebacoin-${VERSION}-win-gitian.zip -d cheebacoin-${VERSION}-win
+	cp cheebacoin-${VERSION}-win/32/cheebacoin-*-setup.exe .
+	zip -r cheebacoin-${VERSION}-win.zip cheebacoin-${VERSION}-win
+	rm -rf cheebacoin-${VERSION}-win
 
 ###Next steps:
 
@@ -203,7 +203,7 @@ repackage gitian builds for release as stand-alone zip/tar/installer exe
 
 * create SHA256SUMS for builds, and PGP-sign it
 
-* update potcoin.com version
+* update cheebacoin.com version
   make sure all OS download links go to the right versions
 
 * update forum version
@@ -220,12 +220,12 @@ repackage gitian builds for release as stand-alone zip/tar/installer exe
 
 	brew update
 	brew install qt --HEAD
-	/usr/local/bin/qmake -spec unsupported/macx-clang-libc++ potcoin-qt.pro USE_UPNP=1 STATIC=1
+	/usr/local/bin/qmake -spec unsupported/macx-clang-libc++ cheebacoin-qt.pro USE_UPNP=1 STATIC=1
 	make
-	codesign -s "Developer ID" Potcoin-Qt.app
+	codesign -s "Developer ID" Cheebacoin-Qt.app
 	export QTDIR=/usr/local/Cellar/qt/4.8.6/  # needed to find translations/qt_*.qm files
 	T=$(contrib/qt_translations.py $QTDIR/translations src/qt/locale)
 	python2.7 share/qt/clean_mac_info_plist.py
-	python2.7 contrib/macdeploy/macdeployqtplus Potcoin-Qt.app -add-qt-tr $T -dmg -fancy contrib/macdeploy/fancy.plist
+	python2.7 contrib/macdeploy/macdeployqtplus Cheebacoin-Qt.app -add-qt-tr $T -dmg -fancy contrib/macdeploy/fancy.plist
 
- Build output expected: Potcoin-Qt.dmg
+ Build output expected: Cheebacoin-Qt.dmg
