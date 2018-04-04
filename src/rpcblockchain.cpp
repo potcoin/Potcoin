@@ -132,8 +132,8 @@ Value settxfee(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 1)
         throw runtime_error(
-            "settxfee <amount POT/kb>\n"
-            "<amount> is a real and is rounded to the nearest 0.00000001 POT per kb");
+            "settxfee <amount CHEEBA/kb>\n"
+            "<amount> is a real and is rounded to the nearest 0.00000001 CHEEBA per kb");
 
     // Amount
     int64 nAmount = 0;

@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2015 The Bitcoin developers
-// Copyright (c) 2015 The Potcoin developers
+// Copyright (c) 2015 The Cheebacoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -22,7 +22,7 @@ using namespace std;
 using namespace boost;
 
 #if defined(NDEBUG)
-# error "Potcoin cannot be compiled without assertions."
+# error "Cheebacoin cannot be compiled without assertions."
 #endif
 
 typedef vector<unsigned char> valtype;
@@ -40,9 +40,9 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0xde36b0cb2a9c7d1d7ac0174d0a89918f874fabcf5f9741dd52cd6d04ee1335ec");
-uint256 hashGenesisBlockTestNet("0x375a10038dbcbf09dbf211280ffa68f5d0138be4c177bff231e28665b3eb8e91");
-static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Potcoin: starting difficulty is 1 / 2^12
+uint256 hashGenesisBlock("0x07a7c90253bd0601edb475d9acdad34b15b84cb409cf8f2b07f2fbad29744c3c");
+uint256 hashGenesisBlockTestNet("0x3750b2da2b08e087b2d3856266a364508f7a5fa198bac75f5e5a6789ea758ac0");
+static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Cheebacoin limit for proof of work, results with 0.000244140625 proof-of-work difficulty
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
 uint256 nBestChainWork = 0;
@@ -74,7 +74,7 @@ map<uint256, set<uint256> > mapOrphanTransactionsByPrev;
 // Constant stuff for coinbase transactions we create:
 CScript COINBASE_FLAGS;
 
-const string strMessageMagic = "Potcoin Signed Message:\n";
+const string strMessageMagic = "Cheebacoin Signed Message:\n";
 
 double dHashesPerSec = 0.0;
 int64 nHPSTimerStart = 0;
@@ -89,7 +89,7 @@ set<pair<COutPoint, unsigned int> > setStakeSeenOrphan;
 static CBigNum bnProofOfStakeLimit(~uint256(0) >> 20);
 static CBigNum bnProofOfStakeReset(~uint256(0) >> 32); // 1
 int64 nReserveBalance = 0;
-unsigned int nStakeMinAge = 8 * 60 * 60; // 8 hours
+unsigned int nStakeMinAge = 7 * 60 * 60; // 420 minutes
 unsigned int nStakeMaxAge = 365 * 24 *  60 * 60; // 365 days
 extern enum Checkpoints::CPMode CheckpointsMode;
 
@@ -374,7 +374,7 @@ unsigned int LimitOrphanTxSize(unsigned int nMaxOrphans)
 
 bool CTxOut::IsDust() const
 {
-    // Potcoin: IsDust() detection disabled, allows any valid dust to be relayed.
+    // Cheebacoin: IsDust() detection disabled, allows any valid dust to be relayed.
     // The fees imposed on each dust txo is considered sufficient spam deterrant.
     return false;
 }
@@ -637,7 +637,7 @@ int64 CTransaction::GetMinFee(unsigned int nBlockSize, bool fAllowFree,
             nMinFee = 0;
     }
 
-    // Potcoin
+    // Cheebacoin
     // To limit dust spam, add nBaseFee for each output less than DUST_SOFT_LIMIT
     BOOST_FOREACH(const CTxOut& txout, vout)
         if (txout.nValue < DUST_SOFT_LIMIT)
@@ -1125,34 +1125,54 @@ uint256 WantedByOrphan(const CBlock* pblockOrphan)
 
 int64 GetBlockValue(int nHeight, int64 nFees)
 {
-    int64 nSubsidy = 420 * COIN;
+    int64 nSubsidy = 900 * COIN;
 
 
-	if(nHeight > 920000)
+	if(nHeight == 1)
 	{
-    nSubsidy = 50 * COIN;
+    nSubsidy = 49143000 * COIN;
 
 	// Hyper halving for POSv transition
-	if(nHeight > 930800)
+	if(nHeight > 5000)
 	  {
-        nSubsidy = 25 * COIN;
+        nSubsidy = 420 * COIN;
     }
-	if(nHeight > 941600)
+	if(nHeight > 6000)
 	  {
-        nSubsidy = 12 * COIN;
+        nSubsidy = 210 * COIN;
     }
-  if(nHeight > 952400)
+  if(nHeight > 7000)
     {
-        nSubsidy = 6 * COIN;
+        nSubsidy = 105 * COIN;
     }
-  if(nHeight > 963200)
+  if(nHeight > 8000)
+    {
+        nSubsidy = 57 * COIN;
+    }
+  if(nHeight > 9000)
+    {
+        nSubsidy = 28 * COIN;
+    }
+  if(nHeight > 10000)
+    {
+        nSubsidy = 14 * COIN;
+    }
+  if(nHeight > 11000)
+    {
+        nSubsidy = 7 * COIN;
+    }
+  if(nHeight > 12000)
     {
         nSubsidy = 3 * COIN;
     }
+  if(nHeight > 13000)
+    {
+        nSubsidy = 0 * COIN;
+    }
 
 	}else{
-	  // Subsidy is cut in half every 280000 blocks, which will occur approximately every 4 months
-    nSubsidy >>= (nHeight / NDIFF_START_DIGISHIELD); // Potcoin: 280k blocks in ~4 months
+	  // Subsidy is cut in half every 1000 blocks, which will occur approximately every 1 day
+    nSubsidy >>= (nHeight / NDIFF_START_DIGISHIELD); // Cheebacoin: 13k blocks in 13 days
   }
     return nSubsidy + nFees;
 }
@@ -1170,14 +1190,14 @@ int64 GetProofOfStakeReward(int64 nCoinAge, int64 nFees)
 
     return nSubsidy + nFees;
 }
-static const int64 nTargetTimespan = 108 * 40; // Potcoin: 3.5 days
-static const int64 nTargetTimespanNEW = 40 ; // Potcoin: 40 seconds
-const int64 nTargetSpacing = 1 * 40; // Potcoin: 40 seconds
+static const int64 nTargetTimespan = 1 * 24 * 60 * 60; // Cheebacoin: 1 day
+static const int64 nTargetTimespanNEW = 2 * 60 ; // Cheebacoin: 2 minutes
+const int64 nTargetSpacing = 1 * 60; // Cheebacoin: 1 minute
 static const int64 nInterval = nTargetTimespan / nTargetSpacing;
 
 
-//const int64 nTargetSpacing = 60; // Potcoin: 1 minute block
-//static const int64 nTargetTimespan = 60 * 60; // Potcoin: Not used
+//const int64 nTargetSpacing = 60; // Cheebacoin: 1 minute block
+//static const int64 nTargetTimespan = 60 * 60; // Cheebacoin: Not used
 
 //
 // maximum nBits value could possible be required nTime after
@@ -1279,7 +1299,7 @@ return pindex->nBits;
 }
 return pindexLast->nBits;
 }
-// Potcoin: This fixes an issue where a 51% attack can change difficulty at will.
+// Cheebacoin: This fixes an issue where a 51% attack can change difficulty at will.
 // Go back the full period unless it's the first retarget after genesis. Code courtesy of Art Forz
 int blockstogoback = nInterval-1;
 if ((pindexLast->nHeight+1) != nInterval)
@@ -1395,7 +1415,7 @@ unsigned int static KimotoGravityWell(const CBlockIndex* pindexLast, const CBloc
     return bnNew.GetCompact();
 }
 unsigned int static GetNextWorkRequired_V2(const CBlockIndex* pindexLast, const CBlockHeader *pblock) {
-    static const int64 BlocksTargetSpacing = 40; // 2.5 minutes
+    static const int64 BlocksTargetSpacing = 60; // 1 minute
     unsigned int TimeDaySeconds = 60 * 60 * 24;
     int64 PastSecondsMin = TimeDaySeconds * 0.01;
     int64 PastSecondsMax = TimeDaySeconds * 0.14;
@@ -1563,7 +1583,7 @@ bool IsInitialBlockDownload()
         nLastUpdate = GetTime();
     }
     return (GetTime() - nLastUpdate < 15 &&
-            pindexBest->GetBlockTime() < GetTime() - 8 * 60 * 60);
+            pindexBest->GetBlockTime() < GetTime() - 7 * 60 * 60);
 }
 
 void static InvalidChainFound(CBlockIndex* pindexNew)
@@ -1972,7 +1992,7 @@ bool FindUndoPos(CValidationState &state, int nFile, CDiskBlockPos &pos, unsigne
 static CCheckQueue<CScriptCheck> scriptcheckqueue(128);
 
 void ThreadScriptCheck() {
-    RenameThread("potcoin-scriptch");
+    RenameThread("cheebacoin-scriptch");
     scriptcheckqueue.Thread();
 }
 
@@ -1990,7 +2010,7 @@ bool CBlock::ConnectBlock(CValidationState &state, CBlockIndex* pindex, CCoinsVi
     if (GetHash() == hashGenesisBlock) {
         view.SetBestBlock(pindex);
         pindexGenesisBlock = pindex;
-        pindexGenesisBlock->nMoneySupply = 420 * COIN;
+        pindexGenesisBlock->nMoneySupply = 900 * COIN;
         return true;
     }
 
@@ -2815,7 +2835,7 @@ bool CBlock::AcceptBlock(CValidationState &state, CDiskBlockPos *dbp)
 
 bool CBlockIndex::IsSuperMajority(int minVersion, const CBlockIndex* pstart, unsigned int nRequired, unsigned int nToCheck)
 {
-    // Potcoin: temporarily disable v2 block lockin until we are ready for v2 transition
+    // Cheebacoin: temporarily disable v2 block lockin until we are ready for v2 transition
     return false;
     unsigned int nFound = 0;
     for (unsigned int i = 0; i < nToCheck && nFound < nRequired && pstart != NULL; i++)
@@ -3415,10 +3435,10 @@ bool LoadBlockIndex()
 {
     if (fTestNet)
     {
-        pchMessageStart[0] = 0xfe;
-        pchMessageStart[1] = 0xc3;
-        pchMessageStart[2] = 0xb9;
-        pchMessageStart[3] = 0xde;
+        pchMessageStart[0] = 0x81;
+        pchMessageStart[1] = 0xe9;
+        pchMessageStart[2] = 0x3f;
+        pchMessageStart[3] = 0x9b;
         hashGenesisBlock = hashGenesisBlockTestNet;
     }
 
@@ -3473,51 +3493,88 @@ bool InitBlockIndex() {
     // Only add the genesis block if not reindexing (in which case we reuse the one already on disk)
     if (!fReindex) {
         // Genesis Block:
-        // CBlock(hash=12a765e31ffd4059bada, PoW=0000050c34a64b415b6b, ver=1, hashPrevBlock=00000000000000000000, hashMerkleRoot=97ddfbbae6, nTime=1317972665, nBits=1e0ffff0, nNonce=2084524493, vtx=1)
-        //   CTransaction(hash=97ddfbbae6, ver=1, vin.size=1, vout.size=1, nLockTime=0)
-        //     CTxIn(COutPoint(0000000000, -1), coinbase 04ffff001d0104404e592054696d65732030352f4f63742f32303131205374657665204a6f62732c204170706c65e280997320566973696f6e6172792c2044696573206174203536)
-        //     CTxOut(nValue=50.00000000, scriptPubKey=040184710fa689ad5023690c80f3a4)
-        //   vMerkleTree: 97ddfbbae6
+        // CBlock(hash=07a7c90253bd0601edb475d9acdad34b15b84cb409cf8f2b07f2fbad29744c3c, input=010000000000000000000000000000000000000000000000000000000000000000000000bd641d8c405dd0c36d41008073d824d5cc62a10f3c07a0d422d773581b6b8d57fc51bb5af0ff0f1e5b2a0900, PoW=00000302dda744c03dcd3a0ae9afbc437a8b4bac698038b11654ec090b9bc381, ver=1, hashPrevBlock=0000000000000000000000000000000000000000000000000000000000000000, hashMerkleRoot=578d6b1b5873d722d4a0073c0fa162ccd524d8738000416dc3d05d408c1d64bd, nTime=1522225660, nBits=1e0ffff0, nNonce=600667, vtx=1, vchBlockSig=)
+
 
         // Genesis block
-        // CBlock(hash=12a765e31ffd4059bada, PoW=0000050c34a64b415b6b, ver=1, hashPrevBlock=00000000000000000000, hashMerkleRoot=97ddfbbae6, nTime=1317972665, nBits=1e0ffff0, nNonce=2084524493, vtx=1)
-        // CTransaction(hash=97ddfbbae6, ver=1, vin.size=1, vout.size=1, nLockTime=0)
-        // CTxIn(COutPoint(0000000000, -1), coinbase 04ffff001d0104404e592054696d65732030352f4f63742f32303131205374657665204a6f62732c204170706c65e280997320566973696f6e6172792c2044696573206174203536)
-        // CTxOut(nValue=50.00000000, scriptPubKey=040184710fa689ad5023690c80f3a4)
-        // vMerkleTree: 97ddfbbae6
+        // CBlock(hash=3750b2da2b08e087b2d3856266a364508f7a5fa198bac75f5e5a6789ea758ac0, input=010000000000000000000000000000000000000000000000000000000000000000000000bd641d8c405dd0c36d41008073d824d5cc62a10f3c07a0d422d773581b6b8d57b251bb5af0ff0f1e10032600, PoW=00000f239b5093123fc8e5a4fb3a3716ecb44c17e891c7d327f8203a3c4c60cc, ver=1, hashPrevBlock=0000000000000000000000000000000000000000000000000000000000000000, hashMerkleRoot=578d6b1b5873d722d4a0073c0fa162ccd524d8738000416dc3d05d408c1d64bd, nTime=1522225586, nBits=1e0ffff0, nNonce=2491152, vtx=1, vchBlockSig=)
         // Genesis block
 
-        //python genesis.py -a scrypt -z "Banks Aren't Accepting Legal Marijuana Money. Here's Why" -p "040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9" -t 1389688315 -n 471993 -v 42000000000
-        const char* pszTimestamp = "Banks Aren't Accepting Legal Marijuana Money. Here's Why";
+    
+        const char* pszTimestamp = "Ford PAtent Envisions Car-to-Car Crypto Transactions";
         CTransaction txNew;
         txNew.nVersion = 1;
         txNew.nTime = 1389688315;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
         txNew.vin[0].scriptSig = CScript() << 486604799 << CBigNum(4) << vector<unsigned char>((const unsigned char*)pszTimestamp, (const unsigned char*)pszTimestamp + strlen(pszTimestamp));
-        txNew.vout[0].nValue = 420 * COIN;
-        txNew.vout[0].scriptPubKey = CScript() << ParseHex("040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9") << OP_CHECKSIG;
+        txNew.vout[0].nValue = 900 * COIN;
+        txNew.vout[0].scriptPubKey = CScript() << ParseHex("04e5eeef81dc8afc74485cb422c651c6378ff3f600963f345afb17ac7017196f1d8de27df8acbb7ec69a457140f38c457484d90bd63efad3ff0a3b39a06a267dcc") << OP_CHECKSIG;
         CBlock block;
         block.vtx.push_back(txNew);
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime = 1389688315;
+        block.nTime = 1522225660;
         block.nBits = 0x1e0ffff0;
-        block.nNonce = 471993;
+        block.nNonce = 600667;
 
         if (fTestNet)
         {
-            txNew.nTime = block.nTime = 1420924223;
-            block.nNonce = 1729989;
+            txNew.nTime = block.nTime = 1522225586;
+            block.nNonce = 2491152 ;
         }
+
+if (false && block.GetHash() != hashGenesisBlock)
+        {
+            printf("Searching for genesis block...\n");
+            // This will figure out a valid hash and Nonce if you're
+            // creating a different genesis block:
+            uint256 hashTarget = CBigNum().SetCompact(block.nBits).getuint256();
+            uint256 thash;
+            char scratchpad[SCRYPT_SCRATCHPAD_SIZE];
+ 
+            loop
+            {
+#if defined(USE_SSE2)
+                // Detection would work, but in cases where we KNOW it always has SSE2,
+                // it is faster to use directly than to use a function pointer or conditional.
+#if defined(_M_X64) || defined(__x86_64__) || defined(_M_AMD64) || (defined(MAC_OSX) && defined(__i386__))
+                // Always SSE2: x86_64 or Intel MacOS X
+                scrypt_1024_1_1_256_sp_sse2(BEGIN(block.nVersion), BEGIN(thash), scratchpad);
+#else
+                // Detect SSE2: 32bit x86 Linux or Windows
+                scrypt_1024_1_1_256_sp(BEGIN(block.nVersion), BEGIN(thash), scratchpad);
+#endif
+#else
+                // Generic scrypt
+                scrypt_1024_1_1_256_sp_generic(BEGIN(block.nVersion), BEGIN(thash), scratchpad);
+#endif
+                if (thash <= hashTarget)
+                    break;
+                if ((block.nNonce & 0xFFF) == 0)
+                {
+                    printf("nonce %08X: hash = %s (target = %s)\n", block.nNonce, thash.ToString().c_str(), hashTarget.ToString().c_str());
+                }
+                ++block.nNonce;
+                if (block.nNonce == 0)
+                {
+                    printf("NONCE WRAPPED, incrementing time\n");
+                    ++block.nTime;
+                }
+            }
+            printf("block.nTime = %u \n", block.nTime);
+            printf("block.nNonce = %u \n", block.nNonce);
+            printf("block.GetHash = %s\n", block.GetHash().ToString().c_str());
+        }
+
 
         //// debug print
         uint256 hash = block.GetHash();
         printf("%s\n", hash.ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0xd5a08606e06eea7eae8a889dbcdcdd84917c10fc8e177ec013a9005305afe53d"));
+        assert(block.hashMerkleRoot == uint256("0x578d6b1b5873d722d4a0073c0fa162ccd524d8738000416dc3d05d408c1d64bd"));
         block.print();
         assert(hash == hashGenesisBlock);
 
@@ -3800,7 +3857,7 @@ bool static AlreadyHave(const CInv& inv)
 // The message start string is designed to be unlikely to occur in normal data.
 // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
 // a large 4-byte int at any alignment.
-unsigned char pchMessageStart[4] = { 0xfb, 0xc0, 0xb6, 0xdb }; // Potcoin: increase each by adding 2 to bitcoin's value.
+unsigned char pchMessageStart[4] = { 0x62, 0xe5, 0x19, 0x7b }; // Cheebacoin peer magic
 
 
 void static ProcessGetData(CNode* pfrom)

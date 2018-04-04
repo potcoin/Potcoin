@@ -1,5 +1,5 @@
 // Copyright (c) 2012-2013 The PPCoin developers
-// Copyright (c) 2015 The Potcoin developers
+// Copyright (c) 2015 The Cheebacoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -51,12 +51,12 @@ int64 GetCoinAgeWeightLinear(int64 nIntervalBeginning, int64 nIntervalEnd)
  * The parameters used in this function are the
  * solutions to a set of intricate mathematical
  * equations chosen specifically to incentivise
- * owners of Potcoin to participate in minting.
+ * owners of Cheebacoin to participate in minting.
  * These parameters are also affected by the values
  * assigned to other variables such as expected
  * block confirmation time.
  * If you are merely forking the source code of
- * Potcoin, it's highly UNLIKELY that this set of
+ * Cheebacoin, it's highly UNLIKELY that this set of
  * parameters work for your purpose. In particular,
  * if you have tweaked the values of other variables,
  * this set of parameters are certainly no longer

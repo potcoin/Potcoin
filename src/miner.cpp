@@ -15,7 +15,7 @@ using namespace std;
 
 //////////////////////////////////////////////////////////////////////////////
 //
-// PotcoinMiner
+// CheebacoinMiner
 //
 
 extern unsigned int nMinerSleep;
@@ -557,7 +557,7 @@ void StakeMiner(CWallet *pwallet)
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
 
     // Make this thread recognisable as the mining thread
-    RenameThread("potcoin-stakeminer");
+    RenameThread("cheebacoin-stakeminer");
     CReserveKey reservekey(pwallet);
     bool fTryToSync = true;
 
@@ -618,11 +618,11 @@ void StakeMiner(CWallet *pwallet)
     }
 }
 
-void static PotcoinMiner(CWallet *pwallet)
+void static CheebacoinMiner(CWallet *pwallet)
 {
-    printf("PotcoinMiner started\n");
+    printf("CheebacoinMiner started\n");
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
-    RenameThread("potcoin-miner");
+    RenameThread("cheebacoin-miner");
 
     // Each thread has its own key and counter
     CReserveKey reservekey(pwallet);
@@ -646,13 +646,13 @@ void static PotcoinMiner(CWallet *pwallet)
         // exit if received a PoSV block template
         if (pblock->vtx[0].vout[0].IsEmpty())
         {
-            printf("PotcoinMiner : no more PoW blocks\n");
+            printf("CheebacoinMiner : no more PoW blocks\n");
             return;
         }
 
         IncrementExtraNonce(pblock, pindexPrev, nExtraNonce);
 
-        printf("Running PotcoinMiner with %"PRIszu" transactions in block (%u bytes)\n", pblock->vtx.size(),
+        printf("Running CheebacoinMiner with %"PRIszu" transactions in block (%u bytes)\n", pblock->vtx.size(),
                ::GetSerializeSize(*pblock, SER_NETWORK, PROTOCOL_VERSION));
 
         //
@@ -751,12 +751,12 @@ void static PotcoinMiner(CWallet *pwallet)
     } }
     catch (boost::thread_interrupted)
     {
-        printf("PotcoinMiner terminated\n");
+        printf("CheebacoinMiner terminated\n");
         throw;
     }
 }
 
-void GeneratePotcoins(bool fGenerate, CWallet* pwallet)
+void GenerateCheebacoins(bool fGenerate, CWallet* pwallet)
 {
     static boost::thread_group* minerThreads = NULL;
 
@@ -783,5 +783,5 @@ void GeneratePotcoins(bool fGenerate, CWallet* pwallet)
 
     // start threads for PoW CPU mining
     for (int i = 0; i < nThreads; i++)
-        minerThreads->create_thread(boost::bind(&PotcoinMiner, pwallet));
+        minerThreads->create_thread(boost::bind(&CheebacoinMiner, pwallet));
 }

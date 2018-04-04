@@ -11,7 +11,7 @@
 #include "main.h"
 #include "uint256.h"
 
-// Potcoin: auto-select a checkpoint among the latest blocks
+// Cheebacoin: auto-select a checkpoint among the latest blocks
 static const int nCheckpointSpan = 10;
 
 namespace Checkpoints
@@ -39,35 +39,26 @@ namespace Checkpoints
     // + Contains no strange transactions
     static MapCheckpoints mapCheckpoints =
         boost::assign::map_list_of
-         ( 10, uint256("0xc2818dc9bf6fd7fb692cc0886d39a724bb4e86fad095a62266bd015b9fbae04f"))
-        ( 17, uint256("0x6c8818dd77bcaee6c3c775a34c0a84f349cc4db99e2c8b40ed7adb83b0184606"))
-        ( 22, uint256("0x592cc1502043365de34d8c806fa2355e8f2ca47bfd568812c77547b4b72df744"))
-        ( 27, uint256("0x49fc54fa7fe3939e57b83a468cb40333177b8e1ae1648a641ccc79d47ca68834"))
-        ( 35, uint256("0x697905a9b6822eb09a6e3eecb82133cde24f15e5c400368b65bdc9b2cc7943c7"))
-        ( 50, uint256("0x6a5411cbcbe8d69dd3cc85af05ad7439fc2c02acd8d5861471ea32a1b59ce271"))
-        ( 80000, uint256("0x0def72391fd1db25297478048a8b1b5feca86061d614146ea8e875d27be1f41f"))
-        (120000, uint256("0xa6d147731bb021c5365ba44264e7faffd47aaf806861278a4227deac33f78207"))
-        (258805, uint256("0x74133722e84132005691a21a8092f0c590da7ab5744f3bdf8113089cc6d55051"))
-        //(458580, uint256("0x51fe53e2091ee1f2e8244cf500027a1900e05cd01427a5258dfac8c3d759e7fe"))
-        (564890, uint256("0x1230d31d9b93651e02c877776e01158496fbac59dd3d898d9b86b76a8e6beb83"))
+         ( 0, uint256("0x07a7c90253bd0601edb475d9acdad34b15b84cb409cf8f2b07f2fbad29744c3c"))
+        
         ;
     static const CCheckpointData data = {
         &mapCheckpoints,
-        1420681312, // * UNIX timestamp of last checkpoint block
-        1297477, // * total number of transactions between genesis and last checkpoint
+        1522225660, // * UNIX timestamp of last checkpoint block
+        0, // * total number of transactions between genesis and last checkpoint
         // (the tx=... number in the SetBestChain debug.log lines)
-        4500.0 // * estimated number of transactions per day after checkpoint
+        1.0 // * estimated number of transactions per day after checkpoint
     };
 
     static MapCheckpoints mapCheckpointsTestnet =
         boost::assign::map_list_of
-        ( 1, uint256("b83611e21012e83487d035fea3ea75891affd8093033c088967fae1677e3557f"))
+        ( 0, uint256("0x3750b2da2b08e087b2d3856266a364508f7a5fa198bac75f5e5a6789ea758ac0"))
         ;
     static const CCheckpointData dataTestnet = {
         &mapCheckpointsTestnet,
-        1401378996,
-        2,
-        2000
+        1522225586,
+        0,
+        1.0
     };
 
     const CCheckpointData &Checkpoints() {
@@ -445,7 +436,7 @@ namespace Checkpoints
     }
 }
 
-// Potcoin: sync-checkpoint master key
+// Cheebacoin: sync-checkpoint master key
 const std::string CSyncCheckpoint::strMasterPubKey = "0437b4b0f5d356f205c17ffff6c46dc9ec4680ffb7f8a9a4e6eebcebd5f340d01df00ef304faea7779d97d8f1addbe1e87308ea237aae3ead96e0a736c7e9477a1";
 
 std::string CSyncCheckpoint::strMasterPrivKey = "";

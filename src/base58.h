@@ -272,8 +272,8 @@ class CBitcoinAddress : public CBase58Data
 public:
     enum
     {
-        PUBKEY_ADDRESS = 55, // Potcoin addresses start with P
-        SCRIPT_ADDRESS = 5,
+        PUBKEY_ADDRESS = 28, // Cheebacoin addresses start with C
+        SCRIPT_ADDRESS = 85,
         PUBKEY_ADDRESS_TEST = 111,
         SCRIPT_ADDRESS_TEST = 196,
     };
