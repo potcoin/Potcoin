@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin developers
-// Copyright (c) 2015 The Potcoin developers
+// Copyright (c) 2015 The Cheebacoin developers
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef BITCOIN_MAIN_H
@@ -39,6 +39,8 @@ class CNode;
 
 struct CBlockIndexWorkComparator;
 
+
+
 /** The maximum allowed size for a serialized block, in bytes (network rule) */
 static const unsigned int MAX_BLOCK_SIZE = 1000000;                      // 1000KB block hard limit
 /** Obsolete: maximum size for mined blocks */
@@ -64,17 +66,17 @@ static const unsigned int UNDOFILE_CHUNK_SIZE = 0x100000; // 1 MiB
 /** Fake height value used in CCoins to signify they are only in the memory pool (since 0.8) */
 static const unsigned int MEMPOOL_HEIGHT = 0x7FFFFFFF;
 /** Dust Soft Limit, allowed with additional fee per output */
-static const int64 DUST_SOFT_LIMIT = 100000000; // 1 POT
+static const int64 DUST_SOFT_LIMIT = 100000000; // 1 CHEEBA
 /** Dust Hard Limit, ignored as wallet inputs (mininput default) */
-static const int64 DUST_HARD_LIMIT = 1000000;   // 0.01 POT mininput
+static const int64 DUST_HARD_LIMIT = 1000000;   // 0.01 CHEEBA mininput
 /** No amount larger than this (in satoshi) is valid */
 static const int64 MAX_MONEY = 420000000 * COIN;
 inline bool MoneyRange(int64 nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 /** Coinbase transaction outputs can only be spent after this number of new blocks (network rule) */
 //static const int COINBASE_MATURITY = 30;
-static const int COINBASE_MATURITY = 5;
+static const int COINBASE_MATURITY = 510;
 /** Coinbase maturity after block 145000 **/
-static const int COINBASE_MATURITY_NEW = 60*4;
+static const int COINBASE_MATURITY_NEW = 510;
 /** Block at which COINBASE_MATURITY_NEW comes into effect **/
 static const int COINBASE_MATURITY_SWITCH = NDIFF_START_DIGISHIELD;
 /** Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp. */
@@ -93,9 +95,9 @@ static const int fHaveUPnP = false;
 inline int64 PastDrift(int64 nTime)   { return nTime - 10 * 60; } // up to 10 minutes from the past
 inline int64 FutureDrift(int64 nTime) { return nTime + 10 * 60; } // up to 10 minutes from the future
 
-// Potcoin PoSV
-static const int LAST_POW_BLOCK = 975000 - 1;
-static const int64 COIN_YEAR_REWARD = 5 * CENT; // 5% per year
+// Cheebacoin PoSV
+static const int LAST_POW_BLOCK = 13000;
+static const int64 COIN_YEAR_REWARD = 20 * CENT; // 20% per year
 
 extern CScript COINBASE_FLAGS;
 
@@ -133,7 +135,7 @@ extern int nScriptCheckThreads;
 extern bool fTxIndex;
 extern unsigned int nCoinCacheSize;
 
-// Potcoin PoSV
+// Cheebacoin PoSV
 extern std::set<std::pair<COutPoint, unsigned int> > setStakeSeen;
 extern unsigned int nStakeMinAge;
 extern unsigned int nStakeMaxAge;
@@ -227,7 +229,7 @@ bool VerifySignature(const CTransaction& txFrom, const CTransaction& txTo, unsig
 /** Abort with a message */
 bool AbortNode(const std::string &msg);
 
-// Potcoin PoSV
+// Cheebacoin PoSV
 int64 GetProofOfStakeReward(int64 nCoinAge, int64 nFees);
 int64 GetBlockValue(int nHeight, int64 nFees);
 unsigned int ComputeMinStake(unsigned int nBase, int64 nTime);

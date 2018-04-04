@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.4)
-project(Potcoin_V2)
+project(Cheebacoin_V2)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
@@ -10,7 +10,7 @@ set(SOURCE_FILES
     .idea/encodings.xml
     .idea/misc.xml
     .idea/modules.xml
-    ".idea/Potcoin V2.iml"
+    ".idea/Cheebacoin V2.iml"
     .idea/vcs.xml
     .idea/workspace.xml
     contrib/bitrpc/bitrpc.py
@@ -399,8 +399,8 @@ set(SOURCE_FILES
     src/qt/res/icons/mining_inactive.png
     src/qt/res/icons/notsynced.png
     src/qt/res/icons/overview.png
-    src/qt/res/icons/potcoin.icns
-    src/qt/res/icons/potcoin.ico
+    src/qt/res/icons/cheebacoin.icns
+    src/qt/res/icons/cheebacoin.ico
     src/qt/res/icons/qrcode.png
     src/qt/res/icons/quit.png
     src/qt/res/icons/receive.png
@@ -648,7 +648,7 @@ set(SOURCE_FILES
     atlassian-ide-plugin.xml
     COPYING
     INSTALL
-    potcoin-qt.pro
+    cheebacoin-qt.pro
     README.md)
 
-add_executable(Potcoin_V2 ${SOURCE_FILES})
+add_executable(Cheebacoin_V2 ${SOURCE_FILES})

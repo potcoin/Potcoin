@@ -110,7 +110,7 @@ static std::string Translate(const char* psz)
 static void handleRunawayException(std::exception *e)
 {
     PrintExceptionContinue(e, "Runaway exception");
-    QMessageBox::critical(0, "Runaway exception", BitcoinGUI::tr("A fatal error occurred. Potcoin can no longer continue safely and will quit.") + QString("\n\n") + QString::fromStdString(strMiscWarning));
+    QMessageBox::critical(0, "Runaway exception", BitcoinGUI::tr("A fatal error occurred. Cheebacoin can no longer continue safely and will quit.") + QString("\n\n") + QString::fromStdString(strMiscWarning));
     exit(1);
 }
 
@@ -146,7 +146,7 @@ int main(int argc, char *argv[])
     {
         // This message can not be translated, as translation is not initialized yet
         // (which not yet possible because lang=XX can be overridden in bitcoin.conf in the data directory)
-        QMessageBox::critical(0, "Potcoin",
+        QMessageBox::critical(0, "Cheebacoin",
                               QString("Error: Specified data directory \"%1\" does not exist.").arg(QString::fromStdString(mapArgs["-datadir"])));
         return 1;
     }
@@ -154,12 +154,12 @@ int main(int argc, char *argv[])
 
     // Application identification (must be set before OptionsModel is initialized,
     // as it is used to locate QSettings)
-    QApplication::setOrganizationName("Potcoin");
-    QApplication::setOrganizationDomain("potcoin.com");
+    QApplication::setOrganizationName("Cheebacoin");
+    QApplication::setOrganizationDomain("cheebacoin.com");
     if(GetBoolArg("-testnet")) // Separate UI settings for testnet
-        QApplication::setApplicationName("Potcoin-Qt-testnet");
+        QApplication::setApplicationName("Cheebacoin-Qt-testnet");
     else
-        QApplication::setApplicationName("Potcoin-Qt");
+        QApplication::setApplicationName("Cheebacoin-Qt");
 
     // ... then GUI settings:
     OptionsModel optionsModel;

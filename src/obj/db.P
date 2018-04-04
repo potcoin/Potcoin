@@ -1,0 +1,8 @@
+obj/db.o: db.cpp db.h main.h bignum.h util.h uint256.h netbase.h \
+ serialize.h allocators.h version.h clientversion.h compat.h sync.h \
+ threadsafety.h net.h mruset.h limitedmap.h protocol.h addrman.h hash.h \
+ bloom.h script.h keystore.h crypter.h key.h scrypt.h
+db.cpp db.h main.h bignum.h util.h uint256.h netbase.h :
+ serialize.h allocators.h version.h clientversion.h compat.h sync.h :
+ threadsafety.h net.h mruset.h limitedmap.h protocol.h addrman.h hash.h :
+ bloom.h script.h keystore.h crypter.h key.h scrypt.h :

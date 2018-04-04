@@ -403,7 +403,7 @@ bool GetMyExternalIP(CNetAddr& ipRet)
 void ThreadGetMyExternalIP(void* parg)
 {
     // Make this thread recognisable as the external IP detection thread
-    RenameThread("potcoin-ext-ip");
+    RenameThread("cheebacoin-ext-ip");
 
     CNetAddr addrLocalHost;
     if (GetMyExternalIP(addrLocalHost))
@@ -1117,7 +1117,7 @@ void ThreadMapPort()
             }
         }
 
-        string strDesc = "Potcoin " + FormatFullVersion();
+        string strDesc = "Cheebacoin " + FormatFullVersion();
 
         try {
             loop {
@@ -1197,13 +1197,16 @@ void MapPort(bool)
 // The first name is used as information source for addrman.
 // The second name should resolve to a list of seed addresses.
 static const char *strMainNetDNSSeed[][2] = {
-    {"seedz.potcoin.info", "dnsseedz.potcoin.info"},
-    {"dns1.potcoin.info","dns1.potcoin.info"},
+    {"138.229.165.59", "138.229.165.59"},
+    {"99.124.229.221","99.124.229.221"},
+    {"160.3.251.165","160.3.251.165"},
+    {"73.189.47.6","73.189.47.6"},
+    {"162.213.255.141","162.213.255.141"},
     {NULL, NULL}
 };
 
 static const char *strTestNetDNSSeed[][2] = {
-    {"testnet-seed.potcoin.com", "testnet-seed.potcoin.com"},
+    {"138.229.165.59", "138.229.165.59"},
     {NULL, NULL}
 };
 
@@ -1252,7 +1255,7 @@ void ThreadDNSAddressSeed()
 
 unsigned int pnSeed[] =
 {
-    0xc6c74b0b
+    0x3ba5e58a,0x8dffd5a2
 };
 
 void DumpAddresses()
@@ -1685,7 +1688,7 @@ bool BindListenPort(const CService &addrBind, string& strError)
     {
         int nErr = WSAGetLastError();
         if (nErr == WSAEADDRINUSE)
-            strError = strprintf(_("Unable to bind to %s on this computer. Potcoin is probably already running."), addrBind.ToString().c_str());
+            strError = strprintf(_("Unable to bind to %s on this computer. Cheebacoin is probably already running."), addrBind.ToString().c_str());
         else
             strError = strprintf(_("Unable to bind to %s on this computer (bind returned error %d, %s)"), addrBind.ToString().c_str(), nErr, strerror(nErr));
         printf("%s\n", strError.c_str());
@@ -1811,7 +1814,7 @@ void StartNode(boost::thread_group& threadGroup)
 bool StopNode()
 {
     printf("StopNode()\n");
-    GeneratePotcoins(false, NULL);
+    GenerateCheebacoins(false, NULL);
     MapPort(false);
     nTransactionsUpdated++;
     if (semOutbound)

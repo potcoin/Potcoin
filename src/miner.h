@@ -17,7 +17,7 @@ class CScript;
 class CWallet;
 
 /** Run the miner threads */
-void GeneratePotcoins(bool fGenerate, CWallet* pwallet);
+void GenerateCheebacoins(bool fGenerate, CWallet* pwallet);
 /* Generate a new block, without valid proof-of-work */
 CBlockTemplate* CreateNewBlock(const CScript& scriptPubKeyIn);
 CBlockTemplate* CreateNewBlockWithKey(CReserveKey& reservekey);
