@@ -1,7 +1,7 @@
 Cheebacoin integration/staging tree
 ================================
 
-http://www.cheebacoin.com
+http://www.cheebacoin.net
 
 Copyright (c) 2009-2015 Bitcoin Developers
 Copyright (c) 2011-2015 Litecoin Developers
@@ -11,22 +11,7 @@ Copyright (c) 2015 Cheebacoin Developers
 What is Cheebacoin?
 ----------------
 
-Around August 1st 2015, at block 975,000 Cheebacoin transitioned to Proof-of-Stake-Velocity (PoSV)
-algorithm which replaced Proof-of-Work (PoW).
- - 40 Second block target
- - just under 220 million mined in PoW phase
- - 5% annual interest in PoSV phase
- - difficulty retarget: every block using Kimoto's gravity well
 
-Cheebacoin first started in January 2014 as a variant of Litecoin using Scrypt as
-the Proof-of-Work (PoW) hash algorithm.
- - 40 Second block target
- - 420 coins per block
- - subsidy halves every 280,000 blocks
- - difficulty retarget: every block using Kimoto's gravity well + Digisheild
-
-For more information, as well as an immediately useable, binary version of
-the Cheebacoin wallet client, please visit http://www.cheebacoin.com.
 
 License
 -------
