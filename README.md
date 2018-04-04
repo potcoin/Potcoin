@@ -6,7 +6,8 @@ http://www.cheebacoin.net
 Copyright (c) 2009-2015 Bitcoin Developers
 Copyright (c) 2011-2015 Litecoin Developers
 Copyright (c) 2014 Reddcoin Developers
-Copyright (c) 2015 Cheebacoin Developers
+Copyright (c) 2015-2018 Potcoin Developers
+Copyright (c) 2018 CheebaCoin Developers
 
 What is Cheebacoin?
 ----------------
