@@ -1,9 +1,9 @@
-Building Potcoin
+Building Cheebacoin
 
-See doc/readme-qt.rst for instructions on building Potcoin-Qt,
+See doc/readme-qt.rst for instructions on building Cheebacoin-Qt,
 the intended-for-end-users, nice-graphical-interface, reference
-implementation of Potcoin.
+implementation of Cheebacoin.
 
-See doc/build-*.txt for instructions on building potcoind,
+See doc/build-*.txt for instructions on building cheebacoind,
 the intended-for-services, no-graphical-interface, reference
-implementation of Potcoin.
+implementation of Cheebacoin.
