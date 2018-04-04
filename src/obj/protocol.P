@@ -1,0 +1,8 @@
+obj/protocol.o: protocol.cpp protocol.h serialize.h allocators.h \
+ version.h clientversion.h netbase.h compat.h uint256.h util.h main.h \
+ bignum.h sync.h threadsafety.h net.h mruset.h limitedmap.h addrman.h \
+ hash.h bloom.h script.h keystore.h crypter.h key.h scrypt.h
+protocol.cpp protocol.h serialize.h allocators.h :
+ version.h clientversion.h netbase.h compat.h uint256.h util.h main.h :
+ bignum.h sync.h threadsafety.h net.h mruset.h limitedmap.h addrman.h :
+ hash.h bloom.h script.h keystore.h crypter.h key.h scrypt.h :

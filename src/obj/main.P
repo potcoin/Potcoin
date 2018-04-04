@@ -1,0 +1,26 @@
+obj/main.o: main.cpp alert.h uint256.h util.h netbase.h serialize.h \
+ allocators.h version.h clientversion.h compat.h checkpoints.h net.h \
+ mruset.h limitedmap.h protocol.h addrman.h sync.h threadsafety.h hash.h \
+ bloom.h db.h main.h bignum.h script.h keystore.h crypter.h key.h \
+ scrypt.h txdb.h leveldb.h \
+ /home/ubuntu/Desktop/CheebaCoin/src/leveldb/include/leveldb/db.h \
+ /home/ubuntu/Desktop/CheebaCoin/src/leveldb/include/leveldb/iterator.h \
+ /home/ubuntu/Desktop/CheebaCoin/src/leveldb/include/leveldb/slice.h \
+ /home/ubuntu/Desktop/CheebaCoin/src/leveldb/include/leveldb/status.h \
+ /home/ubuntu/Desktop/CheebaCoin/src/leveldb/include/leveldb/options.h \
+ /home/ubuntu/Desktop/CheebaCoin/src/leveldb/include/leveldb/write_batch.h \
+ txdb-leveldb.h init.h wallet.h ui_interface.h walletdb.h base58.h \
+ checkqueue.h kernel.h
+main.cpp alert.h uint256.h util.h netbase.h serialize.h :
+ allocators.h version.h clientversion.h compat.h checkpoints.h net.h :
+ mruset.h limitedmap.h protocol.h addrman.h sync.h threadsafety.h hash.h :
+ bloom.h db.h main.h bignum.h script.h keystore.h crypter.h key.h :
+ scrypt.h txdb.h leveldb.h :
+ /home/ubuntu/Desktop/CheebaCoin/src/leveldb/include/leveldb/db.h :
+ /home/ubuntu/Desktop/CheebaCoin/src/leveldb/include/leveldb/iterator.h :
+ /home/ubuntu/Desktop/CheebaCoin/src/leveldb/include/leveldb/slice.h :
+ /home/ubuntu/Desktop/CheebaCoin/src/leveldb/include/leveldb/status.h :
+ /home/ubuntu/Desktop/CheebaCoin/src/leveldb/include/leveldb/options.h :
+ /home/ubuntu/Desktop/CheebaCoin/src/leveldb/include/leveldb/write_batch.h :
+ txdb-leveldb.h init.h wallet.h ui_interface.h walletdb.h base58.h :
+ checkqueue.h kernel.h :
