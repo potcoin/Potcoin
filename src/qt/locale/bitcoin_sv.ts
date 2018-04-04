@@ -4,13 +4,13 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About Potcoin</source>
-        <translation>Om Potcoin</translation>
+        <source>About Cheebacoin</source>
+        <translation>Om Cheebacoin</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;Potcoin&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;Potcoin&lt;/b&gt;-version</translation>
+        <source>&lt;b&gt;Cheebacoin&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;Cheebacoin&lt;/b&gt;-version</translation>
     </message>
     <message>
         <location line="+57"/>
@@ -35,8 +35,8 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="+0"/>
-        <source>The Potcoin developers</source>
-        <translation>Potcoin-utvecklarna</translation>
+        <source>The Cheebacoin developers</source>
+        <translation>Cheebacoin-utvecklarna</translation>
     </message>
 </context>
 <context>
@@ -68,8 +68,8 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="+63"/>
-        <source>These are your Potcoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>Detta är dina Potcoin-adresser för att ta emot betalningar.  Du kan ge varje avsändare en egen adress så att du kan hålla reda på vem som betalar dig.</translation>
+        <source>These are your Cheebacoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation>Detta är dina Cheebacoin-adresser för att ta emot betalningar.  Du kan ge varje avsändare en egen adress så att du kan hålla reda på vem som betalar dig.</translation>
     </message>
     <message>
         <location filename="../forms/addressbookpage.ui" line="+14"/>
@@ -83,7 +83,7 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="+11"/>
-        <source>Sign a message to prove you own a Potcoin address</source>
+        <source>Sign a message to prove you own a Cheebacoin address</source>
         <translation>Signera ett meddelande för att bevisa att du äger denna adress</translation>
     </message>
     <message>
@@ -108,8 +108,8 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="-44"/>
-        <source>Verify a message to ensure it was signed with a specified Potcoin address</source>
-        <translation>Verifiera meddelandet för att vara säker på att den var signerad med den specificerade Potcoin-adressen</translation>
+        <source>Verify a message to ensure it was signed with a specified Cheebacoin address</source>
+        <translation>Verifiera meddelandet för att vara säker på att den var signerad med den specificerade Cheebacoin-adressen</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -123,8 +123,8 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="-5"/>
-        <source>These are your Potcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
-        <translation>Detta är dina Potcoin adresser för att skicka betalningar. Kolla alltid summan och den mottagande adressen innan du skickar Potcoins.</translation>
+        <source>These are your Cheebacoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <translation>Detta är dina Cheebacoin adresser för att skicka betalningar. Kolla alltid summan och den mottagande adressen innan du skickar Cheebacoins.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -139,7 +139,7 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     <message>
         <location line="+1"/>
         <source>Send &amp;Coins</source>
-        <translation>Skicka &amp;Potcoins</translation>
+        <translation>Skicka &amp;Cheebacoins</translation>
     </message>
     <message>
         <location line="+260"/>
@@ -249,7 +249,7 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="+1"/>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR POTCOINS&lt;/b&gt;!</source>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR CHEEBACOINS&lt;/b&gt;!</source>
         <translation>VARNING: Om du krypterar din plånbok och glömmer ditt lösenord, kommer du att &lt;b&gt;FÖRLORA ALLA DINA TILLGÅNGAR&lt;/b&gt;!</translation>
     </message>
     <message>
@@ -276,7 +276,7 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="-56"/>
-        <source>Potcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your potcoins from being stolen by malware infecting your computer.</source>
+        <source>Cheebacoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your cheebacoins from being stolen by malware infecting your computer.</source>
         <translation>Programmet kommer nu att stänga ner för att färdigställa krypteringen. Tänk på att en krypterad plånbok inte skyddar mot stöld om din dator är infekterad med en keylogger.</translation>
     </message>
     <message>
@@ -375,8 +375,8 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="+4"/>
-        <source>Show information about Potcoin</source>
-        <translation>Visa information om Potcoin</translation>
+        <source>Show information about Cheebacoin</source>
+        <translation>Visa information om Cheebacoin</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -420,13 +420,13 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="-347"/>
-        <source>Send coins to a Potcoin address</source>
-        <translation>Skicka mynt till en Potcoin-adress</translation>
+        <source>Send coins to a Cheebacoin address</source>
+        <translation>Skicka mynt till en Cheebacoin-adress</translation>
     </message>
     <message>
         <location line="+49"/>
-        <source>Modify configuration options for Potcoin</source>
-        <translation>Ändra konfigurationsalternativ för Potcoin</translation>
+        <source>Modify configuration options for Cheebacoin</source>
+        <translation>Ändra konfigurationsalternativ för Cheebacoin</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -456,8 +456,8 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     <message>
         <location line="-165"/>
         <location line="+530"/>
-        <source>Potcoin</source>
-        <translation>Potcoin</translation>
+        <source>Cheebacoin</source>
+        <translation>Cheebacoin</translation>
     </message>
     <message>
         <location line="-530"/>
@@ -481,8 +481,8 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="+22"/>
-        <source>&amp;About Potcoin</source>
-        <translation>&amp;Om Potcoin</translation>
+        <source>&amp;About Cheebacoin</source>
+        <translation>&amp;Om Cheebacoin</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -501,13 +501,13 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="+7"/>
-        <source>Sign messages with your Potcoin addresses to prove you own them</source>
-        <translation>Signera meddelanden med din Potcoinadress för att bevisa att du äger dem</translation>
+        <source>Sign messages with your Cheebacoin addresses to prove you own them</source>
+        <translation>Signera meddelanden med din Cheebacoinadress för att bevisa att du äger dem</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Verify messages to ensure they were signed with specified Potcoin addresses</source>
-        <translation>Verifiera meddelanden för att vara säker på att de var signerade med den specificerade Potcoin-adressen</translation>
+        <source>Verify messages to ensure they were signed with specified Cheebacoin addresses</source>
+        <translation>Verifiera meddelanden för att vara säker på att de var signerade med den specificerade Cheebacoin-adressen</translation>
     </message>
     <message>
         <location line="+28"/>
@@ -537,13 +537,13 @@ Denna produkten innehåller mjukvara utvecklad av OpenSSL Project för användni
     </message>
     <message>
         <location line="+47"/>
-        <source>Potcoin client</source>
-        <translation>Potcoin-klient</translation>
+        <source>Cheebacoin client</source>
+        <translation>Cheebacoin-klient</translation>
     </message>
     <message numerus="yes">
         <location line="+141"/>
-        <source>%n active connection(s) to Potcoin network</source>
-        <translation><numerusform>%n aktiv anslutning till Potcoin-nätverket</numerusform><numerusform>%n aktiva anslutningar till Potcoin-nätverket</numerusform></translation>
+        <source>%n active connection(s) to Cheebacoin network</source>
+        <translation><numerusform>%n aktiv anslutning till Cheebacoin-nätverket</numerusform><numerusform>%n aktiva anslutningar till Cheebacoin-nätverket</numerusform></translation>
     </message>
     <message>
         <location line="+22"/>
@@ -657,8 +657,8 @@ Adress: %4
     <message>
         <location line="-23"/>
         <location line="+23"/>
-        <source>URI can not be parsed! This can be caused by an invalid Potcoin address or malformed URI parameters.</source>
-        <translation>URI går inte att tolkas! Detta kan orsakas av en ogiltig Potcoin-adress eller felaktiga URI parametrar.</translation>
+        <source>URI can not be parsed! This can be caused by an invalid Cheebacoin address or malformed URI parameters.</source>
+        <translation>URI går inte att tolkas! Detta kan orsakas av en ogiltig Cheebacoin-adress eller felaktiga URI parametrar.</translation>
     </message>
     <message>
         <location line="+17"/>
@@ -672,8 +672,8 @@ Adress: %4
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+111"/>
-        <source>A fatal error occurred. Potcoin can no longer continue safely and will quit.</source>
-        <translation>Ett allvarligt fel har uppstått. Potcoin kan inte längre köras säkert och kommer att avslutas.</translation>
+        <source>A fatal error occurred. Cheebacoin can no longer continue safely and will quit.</source>
+        <translation>Ett allvarligt fel har uppstått. Cheebacoin kan inte längre köras säkert och kommer att avslutas.</translation>
     </message>
 </context>
 <context>
@@ -738,8 +738,8 @@ Adress: %4
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid Potcoin address.</source>
-        <translation>Den angivna adressen &quot;%1&quot; är inte en giltig Potcoin-adress.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid Cheebacoin address.</source>
+        <translation>Den angivna adressen &quot;%1&quot; är inte en giltig Cheebacoin-adress.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -757,8 +757,8 @@ Adress: %4
     <message>
         <location filename="../guiutil.cpp" line="+424"/>
         <location line="+12"/>
-        <source>Potcoin-Qt</source>
-        <translation>Potcoin-Qt</translation>
+        <source>Cheebacoin-Qt</source>
+        <translation>Cheebacoin-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -820,13 +820,13 @@ Adress: %4
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start Potcoin after logging in to the system.</source>
-        <translation>Starta Potcoin automatiskt efter inloggning.</translation>
+        <source>Automatically start Cheebacoin after logging in to the system.</source>
+        <translation>Starta Cheebacoin automatiskt efter inloggning.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start Potcoin on system login</source>
-        <translation>&amp;Starta Potcoin vid systemstart</translation>
+        <source>&amp;Start Cheebacoin on system login</source>
+        <translation>&amp;Starta Cheebacoin vid systemstart</translation>
     </message>
     <message>
         <location line="+35"/>
@@ -845,8 +845,8 @@ Adress: %4
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the Potcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Öppna automatiskt Potcoin-klientens port på routern. Detta fungerar endast om din router har UPnP aktiverat.</translation>
+        <source>Automatically open the Cheebacoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Öppna automatiskt Cheebacoin-klientens port på routern. Detta fungerar endast om din router har UPnP aktiverat.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -855,8 +855,8 @@ Adress: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the Potcoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation>Anslut till Potcoin-nätverket genom en SOCKS-proxy (t.ex. när du ansluter genom Tor).</translation>
+        <source>Connect to the Cheebacoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation>Anslut till Cheebacoin-nätverket genom en SOCKS-proxy (t.ex. när du ansluter genom Tor).</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -930,8 +930,8 @@ Adress: %4
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting Potcoin.</source>
-        <translation>Användargränssnittets språk kan ställas in här. Denna inställning träder i kraft efter en omstart av Potcoin.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Cheebacoin.</source>
+        <translation>Användargränssnittets språk kan ställas in här. Denna inställning träder i kraft efter en omstart av Cheebacoin.</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -945,8 +945,8 @@ Adress: %4
     </message>
     <message>
         <location line="+9"/>
-        <source>Whether to show Potcoin addresses in the transaction list or not.</source>
-        <translation>Anger om Potcoin-adresser skall visas i transaktionslistan.</translation>
+        <source>Whether to show Cheebacoin addresses in the transaction list or not.</source>
+        <translation>Anger om Cheebacoin-adresser skall visas i transaktionslistan.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -997,8 +997,8 @@ Adress: %4
     <message>
         <location line="-9"/>
         <location line="+9"/>
-        <source>This setting will take effect after restarting Potcoin.</source>
-        <translation>Denna inställning träder i kraft efter en omstart av Potcoin.</translation>
+        <source>This setting will take effect after restarting Cheebacoin.</source>
+        <translation>Denna inställning träder i kraft efter en omstart av Cheebacoin.</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -1016,8 +1016,8 @@ Adress: %4
     <message>
         <location line="+50"/>
         <location line="+166"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Potcoin network after a connection is established, but this process has not completed yet.</source>
-        <translation>Den visade informationen kan vara inaktuell. Plånboken synkroniseras automatiskt med Potcoin-nätverket efter att anslutningen är upprättad, men denna process har inte slutförts ännu.</translation>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Cheebacoin network after a connection is established, but this process has not completed yet.</source>
+        <translation>Den visade informationen kan vara inaktuell. Plånboken synkroniseras automatiskt med Cheebacoin-nätverket efter att anslutningen är upprättad, men denna process har inte slutförts ännu.</translation>
     </message>
     <message>
         <location line="-124"/>
@@ -1070,8 +1070,8 @@ Adress: %4
     <name>PaymentServer</name>
     <message>
         <location filename="../paymentserver.cpp" line="+107"/>
-        <source>Cannot start potcoin: click-to-pay handler</source>
-        <translation>Kan inte starta potcoin: klicka-och-betala handhavare</translation>
+        <source>Cannot start cheebacoin: click-to-pay handler</source>
+        <translation>Kan inte starta cheebacoin: klicka-och-betala handhavare</translation>
     </message>
 </context>
 <context>
@@ -1220,8 +1220,8 @@ Adress: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the Potcoin-Qt help message to get a list with possible Potcoin command-line options.</source>
-        <translation>Visa Potcoin-Qt hjälpmeddelande för att få en lista med möjliga Potcoin kommandoradsalternativ.</translation>
+        <source>Show the Cheebacoin-Qt help message to get a list with possible Cheebacoin command-line options.</source>
+        <translation>Visa Cheebacoin-Qt hjälpmeddelande för att få en lista med möjliga Cheebacoin kommandoradsalternativ.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1240,13 +1240,13 @@ Adress: %4
     </message>
     <message>
         <location line="-104"/>
-        <source>Potcoin - Debug window</source>
-        <translation>Potcoin - Debug fönster</translation>
+        <source>Cheebacoin - Debug window</source>
+        <translation>Cheebacoin - Debug fönster</translation>
     </message>
     <message>
         <location line="+25"/>
-        <source>Potcoin Core</source>
-        <translation>Potcoin Kärna</translation>
+        <source>Cheebacoin Core</source>
+        <translation>Cheebacoin Kärna</translation>
     </message>
     <message>
         <location line="+279"/>
@@ -1255,8 +1255,8 @@ Adress: %4
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the Potcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Öppna Potcoin debug-loggfilen som finns i datakatalogen. Detta kan ta några sekunder för stora loggfiler.</translation>
+        <source>Open the Cheebacoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation>Öppna Cheebacoin debug-loggfilen som finns i datakatalogen. Detta kan ta några sekunder för stora loggfiler.</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -1265,8 +1265,8 @@ Adress: %4
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-30"/>
-        <source>Welcome to the Potcoin RPC console.</source>
-        <translation>Välkommen till Potcoin RPC-konsollen.</translation>
+        <source>Welcome to the Cheebacoin RPC console.</source>
+        <translation>Välkommen till Cheebacoin RPC-konsollen.</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -1449,8 +1449,8 @@ Adress: %4
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a Potcoin address (starts with P)</source>
-        <translation>Ange en Potcoin-adress (starts with P)</translation>
+        <source>Enter a Cheebacoin address (starts with P)</source>
+        <translation>Ange en Cheebacoin-adress (starts with P)</translation>
     </message>
 </context>
 <context>
@@ -1514,7 +1514,7 @@ Adress: %4
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this Potcoin address</source>
+        <source>Sign the message to prove you own this Cheebacoin address</source>
         <translation>Signera meddelandet för att bevisa att du äger denna adress</translation>
     </message>
     <message>
@@ -1550,8 +1550,8 @@ Adress: %4
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified Potcoin address</source>
-        <translation>Verifiera meddelandet för att vara säker på att den var signerad med den angivna Potcoin-adressen</translation>
+        <source>Verify the message to ensure it was signed with the specified Cheebacoin address</source>
+        <translation>Verifiera meddelandet för att vara säker på att den var signerad med den angivna Cheebacoin-adressen</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1566,8 +1566,8 @@ Adress: %4
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a Potcoin address (starts with P)</source>
-        <translation>Ange en Potcoin-adress (starts with P)</translation>
+        <source>Enter a Cheebacoin address (starts with P)</source>
+        <translation>Ange en Cheebacoin-adress (starts with P)</translation>
     </message>
     <message>
         <location line="-2"/>
@@ -1576,8 +1576,8 @@ Adress: %4
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter Potcoin signature</source>
-        <translation>Ange Potcoin-signatur</translation>
+        <source>Enter Cheebacoin signature</source>
+        <translation>Ange Cheebacoin-signatur</translation>
     </message>
     <message>
         <location line="+82"/>
@@ -1650,8 +1650,8 @@ Adress: %4
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+22"/>
-        <source>The Potcoin developers</source>
-        <translation>Potcoin-utvecklarna</translation>
+        <source>The Cheebacoin developers</source>
+        <translation>Cheebacoin-utvecklarna</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2188,8 +2188,8 @@ Adress: %4
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+94"/>
-        <source>Potcoin version</source>
-        <translation>Potcoin version</translation>
+        <source>Cheebacoin version</source>
+        <translation>Cheebacoin version</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -2198,8 +2198,8 @@ Adress: %4
     </message>
     <message>
         <location line="-29"/>
-        <source>Send command to -server or potcoind</source>
-        <translation>Skicka kommando till -server eller potcoind</translation>
+        <source>Send command to -server or cheebacoind</source>
+        <translation>Skicka kommando till -server eller cheebacoind</translation>
     </message>
     <message>
         <location line="-23"/>
@@ -2218,13 +2218,13 @@ Adress: %4
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: potcoin.conf)</source>
-        <translation>Ange konfigurationsfil (förvalt: potcoin.conf)</translation>
+        <source>Specify configuration file (default: cheebacoin.conf)</source>
+        <translation>Ange konfigurationsfil (förvalt: cheebacoin.conf)</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: potcoind.pid)</source>
-        <translation>Ange pid fil (förvalt: potcoind.pid)</translation>
+        <source>Specify pid file (default: cheebacoind.pid)</source>
+        <translation>Ange pid fil (förvalt: cheebacoind.pid)</translation>
     </message>
     <message>
         <location line="-1"/>
@@ -2238,8 +2238,8 @@ Adress: %4
     </message>
     <message>
         <location line="-28"/>
-        <source>Listen for connections on &lt;port&gt; (default: 4200 or testnet: 14200)</source>
-        <translation>Lyssna efter anslutningar på &lt;port&gt; (förvalt: 45444 eller testnet: 14200)</translation>
+        <source>Listen for connections on &lt;port&gt; (default: 4420 or testnet: 14420)</source>
+        <translation>Lyssna efter anslutningar på &lt;port&gt; (förvalt: 45444 eller testnet: 14420)</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -2273,8 +2273,8 @@ Adress: %4
     </message>
     <message>
         <location line="+27"/>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 42000 or testnet: 142000)</source>
-        <translation>Lyssna på JSON-RPC-anslutningar på &lt;port&gt; (förvalt: 42000 eller testnet: 142000)</translation>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 44200 or testnet: 144200)</source>
+        <translation>Lyssna på JSON-RPC-anslutningar på &lt;port&gt; (förvalt: 44200 eller testnet: 144200)</translation>
     </message>
     <message>
         <location line="+37"/>
@@ -2301,24 +2301,24 @@ Adress: %4
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=potcoinrpc
+rpcuser=cheebacoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;Potcoin Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;Cheebacoin Alert&quot; admin@foo.com
 </source>
         <translation>%s, du behöver sätta ett rpclösensord i konfigurationsfilen:
 %s
 Det är rekommenderat att använda följande slumpade lösenord:
-rpcuser=potcoinrpc
+rpcuser=cheebacoinrpc
 rpcpassword=%s
 (du behöver inte komma ihåg lösenordet)
 Användarnamnet och lösenordet FÅR INTE bara detsamma.
 Om filen inte existerar, skapa den med enbart ägarläsbara filrättigheter.
 Det är också rekommenderat att sätta alertnotify så du meddelas om problem;
-till exempel: alertnotify=echo %%s | mail -s &quot;Potcoin Alert&quot; admin@foo.com
+till exempel: alertnotify=echo %%s | mail -s &quot;Cheebacoin Alert&quot; admin@foo.com
 </translation>
     </message>
     <message>
@@ -2333,8 +2333,8 @@ till exempel: alertnotify=echo %%s | mail -s &quot;Potcoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+3"/>
-        <source>Cannot obtain a lock on data directory %s. Potcoin is probably already running.</source>
-        <translation>Kan inte låsa data-mappen %s. Potcoin körs förmodligen redan.</translation>
+        <source>Cannot obtain a lock on data directory %s. Cheebacoin is probably already running.</source>
+        <translation>Kan inte låsa data-mappen %s. Cheebacoin körs förmodligen redan.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2344,7 +2344,7 @@ till exempel: alertnotify=echo %%s | mail -s &quot;Potcoin Alert&quot; admin@foo
     <message>
         <location line="+4"/>
         <source>Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!</source>
-        <translation>Fel: Denna transaktion kräver en transaktionsavgift på minst %s på grund av dess storlek, komplexitet, eller användning av senast mottagna potcoins!</translation>
+        <translation>Fel: Denna transaktion kräver en transaktionsavgift på minst %s på grund av dess storlek, komplexitet, eller användning av senast mottagna cheebacoins!</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2378,8 +2378,8 @@ till exempel: alertnotify=echo %%s | mail -s &quot;Potcoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+3"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Potcoin will not work properly.</source>
-        <translation>Varning: Vänligen kolla så att din dators datum och tid är korrekt! Om din klocka går fel kommer Potcoin inte fungera korrekt.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Cheebacoin will not work properly.</source>
+        <translation>Varning: Vänligen kolla så att din dators datum och tid är korrekt! Om din klocka går fel kommer Cheebacoin inte fungera korrekt.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2628,8 +2628,8 @@ till exempel: alertnotify=echo %%s | mail -s &quot;Potcoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+5"/>
-        <source>SSL options: (see wiki.potcoin.com for SSL setup instructions)</source>
-        <translation>SSL-inställningar: (se Potcoin-wikin för SSL-setup instruktioner)</translation>
+        <source>SSL options: (see wiki.cheebacoin.com for SSL setup instructions)</source>
+        <translation>SSL-inställningar: (se Cheebacoin-wikin för SSL-setup instruktioner)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2818,13 +2818,13 @@ till exempel: alertnotify=echo %%s | mail -s &quot;Potcoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="+1"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of Potcoin</source>
-        <translation>Fel vid inläsningen av wallet.dat: Plånboken kräver en senare version av Potcoin</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Cheebacoin</source>
+        <translation>Fel vid inläsningen av wallet.dat: Plånboken kräver en senare version av Cheebacoin</translation>
     </message>
     <message>
         <location line="+93"/>
-        <source>Wallet needed to be rewritten: restart Potcoin to complete</source>
-        <translation>Plånboken behöver skrivas om: Starta om Potcoin för att färdigställa</translation>
+        <source>Wallet needed to be rewritten: restart Cheebacoin to complete</source>
+        <translation>Plånboken behöver skrivas om: Starta om Cheebacoin för att färdigställa</translation>
     </message>
     <message>
         <location line="-95"/>
@@ -2869,7 +2869,7 @@ till exempel: alertnotify=echo %%s | mail -s &quot;Potcoin Alert&quot; admin@foo
     <message>
         <location line="-6"/>
         <source>Insufficient funds</source>
-        <translation>Otillräckligt med potcoins</translation>
+        <translation>Otillräckligt med cheebacoins</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -2883,8 +2883,8 @@ till exempel: alertnotify=echo %%s | mail -s &quot;Potcoin Alert&quot; admin@foo
     </message>
     <message>
         <location line="-25"/>
-        <source>Unable to bind to %s on this computer. Potcoin is probably already running.</source>
-        <translation>Det går inte att binda till %s på den här datorn. Potcoin är förmodligen redan igång.</translation>
+        <source>Unable to bind to %s on this computer. Cheebacoin is probably already running.</source>
+        <translation>Det går inte att binda till %s på den här datorn. Cheebacoin är förmodligen redan igång.</translation>
     </message>
     <message>
         <location line="+64"/>

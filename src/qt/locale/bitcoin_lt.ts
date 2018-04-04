@@ -4,13 +4,13 @@
     <name>AboutDialog</name>
     <message>
         <location filename="../forms/aboutdialog.ui" line="+14"/>
-        <source>About Potcoin</source>
-        <translation>Apie Potcoin</translation>
+        <source>About Cheebacoin</source>
+        <translation>Apie Cheebacoin</translation>
     </message>
     <message>
         <location line="+39"/>
-        <source>&lt;b&gt;Potcoin&lt;/b&gt; version</source>
-        <translation>&lt;b&gt;Potcoin&lt;/b&gt; versija</translation>
+        <source>&lt;b&gt;Cheebacoin&lt;/b&gt; version</source>
+        <translation>&lt;b&gt;Cheebacoin&lt;/b&gt; versija</translation>
     </message>
     <message>
         <location line="+57"/>
@@ -33,7 +33,7 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location line="+0"/>
-        <source>The Potcoin developers</source>
+        <source>The Cheebacoin developers</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -66,8 +66,8 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="+63"/>
-        <source>These are your Potcoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>Tai yra jūsų Potcoin adresai mokėjimų gavimui. Galite duoti skirtingus adresus atskiriems siuntėjams, kad galėtumėte sekti, kas jums moka.</translation>
+        <source>These are your Cheebacoin addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation>Tai yra jūsų Cheebacoin adresai mokėjimų gavimui. Galite duoti skirtingus adresus atskiriems siuntėjams, kad galėtumėte sekti, kas jums moka.</translation>
     </message>
     <message>
         <location filename="../forms/addressbookpage.ui" line="+14"/>
@@ -81,8 +81,8 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location line="+11"/>
-        <source>Sign a message to prove you own a Potcoin address</source>
-        <translation>Pasirašykite žinutę, kad įrodytume, jog esate Potcoin adreso savininkas</translation>
+        <source>Sign a message to prove you own a Cheebacoin address</source>
+        <translation>Pasirašykite žinutę, kad įrodytume, jog esate Cheebacoin adreso savininkas</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -106,8 +106,8 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location line="-44"/>
-        <source>Verify a message to ensure it was signed with a specified Potcoin address</source>
-        <translation>Patikrinkite žinutę, jog įsitikintumėte, kad ją pasirašė nurodytas Potcoin adresas</translation>
+        <source>Verify a message to ensure it was signed with a specified Cheebacoin address</source>
+        <translation>Patikrinkite žinutę, jog įsitikintumėte, kad ją pasirašė nurodytas Cheebacoin adresas</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -121,7 +121,7 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="-5"/>
-        <source>These are your Potcoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
+        <source>These are your Cheebacoin addresses for sending payments. Always check the amount and the receiving address before sending coins.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -247,8 +247,8 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location line="+1"/>
-        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR POTCOINS&lt;/b&gt;!</source>
-        <translation>Dėmesio: jei užšifruosite savo piniginę ir pamesite slaptafrazę, jūs&lt;b&gt;PRARASITE VISUS SAVO POTCOINUS&lt;/b&gt;! </translation>
+        <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR CHEEBACOINS&lt;/b&gt;!</source>
+        <translation>Dėmesio: jei užšifruosite savo piniginę ir pamesite slaptafrazę, jūs&lt;b&gt;PRARASITE VISUS SAVO CHEEBACOINUS&lt;/b&gt;! </translation>
     </message>
     <message>
         <location line="+0"/>
@@ -274,8 +274,8 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location line="-56"/>
-        <source>Potcoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your potcoins from being stolen by malware infecting your computer.</source>
-        <translation>Potcoin dabar užsidarys šifravimo proceso pabaigai. Atminkite, kad piniginės šifravimas negali pilnai apsaugoti potcoinų vagysčių kai tinkle esančios kenkėjiškos programos patenka į jūsų kompiuterį.</translation>
+        <source>Cheebacoin will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your cheebacoins from being stolen by malware infecting your computer.</source>
+        <translation>Cheebacoin dabar užsidarys šifravimo proceso pabaigai. Atminkite, kad piniginės šifravimas negali pilnai apsaugoti cheebacoinų vagysčių kai tinkle esančios kenkėjiškos programos patenka į jūsų kompiuterį.</translation>
     </message>
     <message>
         <location line="+13"/>
@@ -373,8 +373,8 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location line="+4"/>
-        <source>Show information about Potcoin</source>
-        <translation>Rodyti informaciją apie Potcoin</translation>
+        <source>Show information about Cheebacoin</source>
+        <translation>Rodyti informaciją apie Cheebacoin</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -418,13 +418,13 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location line="-347"/>
-        <source>Send coins to a Potcoin address</source>
-        <translation>Siųsti monetas Potcoin adresui</translation>
+        <source>Send coins to a Cheebacoin address</source>
+        <translation>Siųsti monetas Cheebacoin adresui</translation>
     </message>
     <message>
         <location line="+49"/>
-        <source>Modify configuration options for Potcoin</source>
-        <translation>Keisti potcoin konfigūracijos galimybes</translation>
+        <source>Modify configuration options for Cheebacoin</source>
+        <translation>Keisti cheebacoin konfigūracijos galimybes</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -454,8 +454,8 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     <message>
         <location line="-165"/>
         <location line="+530"/>
-        <source>Potcoin</source>
-        <translation>Potcoin</translation>
+        <source>Cheebacoin</source>
+        <translation>Cheebacoin</translation>
     </message>
     <message>
         <location line="-530"/>
@@ -479,8 +479,8 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location line="+22"/>
-        <source>&amp;About Potcoin</source>
-        <translation>&amp;Apie Potcoin</translation>
+        <source>&amp;About Cheebacoin</source>
+        <translation>&amp;Apie Cheebacoin</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -499,12 +499,12 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location line="+7"/>
-        <source>Sign messages with your Potcoin addresses to prove you own them</source>
+        <source>Sign messages with your Cheebacoin addresses to prove you own them</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <location line="+2"/>
-        <source>Verify messages to ensure they were signed with specified Potcoin addresses</source>
+        <source>Verify messages to ensure they were signed with specified Cheebacoin addresses</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -535,13 +535,13 @@ Platinama pagal MIT/X11 licenciją, kurią rasite faile COPYING arba http://www.
     </message>
     <message>
         <location line="+47"/>
-        <source>Potcoin client</source>
-        <translation>Potcoin klientas</translation>
+        <source>Cheebacoin client</source>
+        <translation>Cheebacoin klientas</translation>
     </message>
     <message numerus="yes">
         <location line="+141"/>
-        <source>%n active connection(s) to Potcoin network</source>
-        <translation><numerusform>%n Potcoin tinklo aktyvus ryšys</numerusform><numerusform>%n Potcoin tinklo aktyvūs ryšiai</numerusform><numerusform>%n Potcoin tinklo aktyvūs ryšiai</numerusform></translation>
+        <source>%n active connection(s) to Cheebacoin network</source>
+        <translation><numerusform>%n Cheebacoin tinklo aktyvus ryšys</numerusform><numerusform>%n Cheebacoin tinklo aktyvūs ryšiai</numerusform><numerusform>%n Cheebacoin tinklo aktyvūs ryšiai</numerusform></translation>
     </message>
     <message>
         <location line="+22"/>
@@ -654,7 +654,7 @@ Adresas: %4</translation>
     <message>
         <location line="-23"/>
         <location line="+23"/>
-        <source>URI can not be parsed! This can be caused by an invalid Potcoin address or malformed URI parameters.</source>
+        <source>URI can not be parsed! This can be caused by an invalid Cheebacoin address or malformed URI parameters.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -669,7 +669,7 @@ Adresas: %4</translation>
     </message>
     <message>
         <location filename="../bitcoin.cpp" line="+111"/>
-        <source>A fatal error occurred. Potcoin can no longer continue safely and will quit.</source>
+        <source>A fatal error occurred. Cheebacoin can no longer continue safely and will quit.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -735,8 +735,8 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="-5"/>
-        <source>The entered address &quot;%1&quot; is not a valid Potcoin address.</source>
-        <translation>Įvestas adresas „%1“ nėra galiojantis Potcoin adresas.</translation>
+        <source>The entered address &quot;%1&quot; is not a valid Cheebacoin address.</source>
+        <translation>Įvestas adresas „%1“ nėra galiojantis Cheebacoin adresas.</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -754,8 +754,8 @@ Adresas: %4</translation>
     <message>
         <location filename="../guiutil.cpp" line="+424"/>
         <location line="+12"/>
-        <source>Potcoin-Qt</source>
-        <translation>Potcoin-Qt</translation>
+        <source>Cheebacoin-Qt</source>
+        <translation>Cheebacoin-Qt</translation>
     </message>
     <message>
         <location line="-12"/>
@@ -817,13 +817,13 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+31"/>
-        <source>Automatically start Potcoin after logging in to the system.</source>
+        <source>Automatically start Cheebacoin after logging in to the system.</source>
         <translation>Automatiškai paleisti Bitkoin programą įjungus sistemą.</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>&amp;Start Potcoin on system login</source>
-        <translation>&amp;Paleisti Potcoin programą su window sistemos paleidimu</translation>
+        <source>&amp;Start Cheebacoin on system login</source>
+        <translation>&amp;Paleisti Cheebacoin programą su window sistemos paleidimu</translation>
     </message>
     <message>
         <location line="+35"/>
@@ -842,8 +842,8 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+6"/>
-        <source>Automatically open the Potcoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Automatiškai atidaryti Potcoin kliento prievadą maršrutizatoriuje. Tai veikia tik tada, kai jūsų maršrutizatorius palaiko UPnP ir ji įjungta.</translation>
+        <source>Automatically open the Cheebacoin client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation>Automatiškai atidaryti Cheebacoin kliento prievadą maršrutizatoriuje. Tai veikia tik tada, kai jūsų maršrutizatorius palaiko UPnP ir ji įjungta.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -852,7 +852,7 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Connect to the Potcoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <source>Connect to the Cheebacoin network through a SOCKS proxy (e.g. when connecting through Tor).</source>
         <translation>Jungtis į Bitkoin tinklą per  socks proxy (pvz. jungiantis per Tor)</translation>
     </message>
     <message>
@@ -927,8 +927,8 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting Potcoin.</source>
-        <translation>Čia gali būti nustatyta naudotojo sąsajos kalba. Šis nustatymas įsigalios iš naujo paleidus Potcoin.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Cheebacoin.</source>
+        <translation>Čia gali būti nustatyta naudotojo sąsajos kalba. Šis nustatymas įsigalios iš naujo paleidus Cheebacoin.</translation>
     </message>
     <message>
         <location line="+11"/>
@@ -942,7 +942,7 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+9"/>
-        <source>Whether to show Potcoin addresses in the transaction list or not.</source>
+        <source>Whether to show Cheebacoin addresses in the transaction list or not.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -994,7 +994,7 @@ Adresas: %4</translation>
     <message>
         <location line="-9"/>
         <location line="+9"/>
-        <source>This setting will take effect after restarting Potcoin.</source>
+        <source>This setting will take effect after restarting Cheebacoin.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1013,7 +1013,7 @@ Adresas: %4</translation>
     <message>
         <location line="+50"/>
         <location line="+166"/>
-        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Potcoin network after a connection is established, but this process has not completed yet.</source>
+        <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Cheebacoin network after a connection is established, but this process has not completed yet.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1067,7 +1067,7 @@ Adresas: %4</translation>
     <name>PaymentServer</name>
     <message>
         <location filename="../paymentserver.cpp" line="+107"/>
-        <source>Cannot start potcoin: click-to-pay handler</source>
+        <source>Cannot start cheebacoin: click-to-pay handler</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1217,7 +1217,7 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Show the Potcoin-Qt help message to get a list with possible Potcoin command-line options.</source>
+        <source>Show the Cheebacoin-Qt help message to get a list with possible Cheebacoin command-line options.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1237,13 +1237,13 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="-104"/>
-        <source>Potcoin - Debug window</source>
-        <translation>Potcoin - Derinimo langas</translation>
+        <source>Cheebacoin - Debug window</source>
+        <translation>Cheebacoin - Derinimo langas</translation>
     </message>
     <message>
         <location line="+25"/>
-        <source>Potcoin Core</source>
-        <translation>Potcoin branduolys</translation>
+        <source>Cheebacoin Core</source>
+        <translation>Cheebacoin branduolys</translation>
     </message>
     <message>
         <location line="+279"/>
@@ -1252,7 +1252,7 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+7"/>
-        <source>Open the Potcoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <source>Open the Cheebacoin debug log file from the current data directory. This can take a few seconds for large log files.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1262,7 +1262,7 @@ Adresas: %4</translation>
     </message>
     <message>
         <location filename="../rpcconsole.cpp" line="-30"/>
-        <source>Welcome to the Potcoin RPC console.</source>
+        <source>Welcome to the Cheebacoin RPC console.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1446,7 +1446,7 @@ Adresas: %4</translation>
     </message>
     <message>
         <location filename="../sendcoinsentry.cpp" line="+1"/>
-        <source>Enter a Potcoin address (starts with P)</source>
+        <source>Enter a Cheebacoin address (starts with P)</source>
         <translation>Įveskite bitkoinų adresą (starts with P)</translation>
     </message>
 </context>
@@ -1511,7 +1511,7 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+21"/>
-        <source>Sign the message to prove you own this Potcoin address</source>
+        <source>Sign the message to prove you own this Cheebacoin address</source>
         <translation>Registruotis žinute įrodymuii, kad turite šį adresą</translation>
     </message>
     <message>
@@ -1547,8 +1547,8 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified Potcoin address</source>
-        <translation>Patikrinkite žinutę, jog įsitikintumėte, kad ją pasirašė nurodytas Potcoin adresas</translation>
+        <source>Verify the message to ensure it was signed with the specified Cheebacoin address</source>
+        <translation>Patikrinkite žinutę, jog įsitikintumėte, kad ją pasirašė nurodytas Cheebacoin adresas</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1563,7 +1563,7 @@ Adresas: %4</translation>
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
         <location line="+3"/>
-        <source>Enter a Potcoin address (starts with P)</source>
+        <source>Enter a Cheebacoin address (starts with P)</source>
         <translation>Įveskite bitkoinų adresą (starts with P)</translation>
     </message>
     <message>
@@ -1573,8 +1573,8 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Enter Potcoin signature</source>
-        <translation>Įveskite Potcoin parašą</translation>
+        <source>Enter Cheebacoin signature</source>
+        <translation>Įveskite Cheebacoin parašą</translation>
     </message>
     <message>
         <location line="+82"/>
@@ -1647,7 +1647,7 @@ Adresas: %4</translation>
     <name>SplashScreen</name>
     <message>
         <location filename="../splashscreen.cpp" line="+22"/>
-        <source>The Potcoin developers</source>
+        <source>The Cheebacoin developers</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2185,8 +2185,8 @@ Adresas: %4</translation>
     <name>bitcoin-core</name>
     <message>
         <location filename="../bitcoinstrings.cpp" line="+94"/>
-        <source>Potcoin version</source>
-        <translation>Potcoin versija</translation>
+        <source>Cheebacoin version</source>
+        <translation>Cheebacoin versija</translation>
     </message>
     <message>
         <location line="+102"/>
@@ -2195,8 +2195,8 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="-29"/>
-        <source>Send command to -server or potcoind</source>
-        <translation>Siųsti komandą serveriui arba potcoind</translation>
+        <source>Send command to -server or cheebacoind</source>
+        <translation>Siųsti komandą serveriui arba cheebacoind</translation>
     </message>
     <message>
         <location line="-23"/>
@@ -2215,13 +2215,13 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+24"/>
-        <source>Specify configuration file (default: potcoin.conf)</source>
-        <translation>Nurodyti konfigūracijos failą (pagal nutylėjimąt: potcoin.conf)</translation>
+        <source>Specify configuration file (default: cheebacoin.conf)</source>
+        <translation>Nurodyti konfigūracijos failą (pagal nutylėjimąt: cheebacoin.conf)</translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Specify pid file (default: potcoind.pid)</source>
-        <translation>Nurodyti pid failą (pagal nutylėjimą: potcoind.pid)</translation>
+        <source>Specify pid file (default: cheebacoind.pid)</source>
+        <translation>Nurodyti pid failą (pagal nutylėjimą: cheebacoind.pid)</translation>
     </message>
     <message>
         <location line="-1"/>
@@ -2235,8 +2235,8 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="-28"/>
-        <source>Listen for connections on &lt;port&gt; (default: 4200 or testnet: 14200)</source>
-        <translation>Sujungimo klausymas prijungčiai  &lt;port&gt; (pagal nutylėjimą: 45444 arba testnet: 14200)</translation>
+        <source>Listen for connections on &lt;port&gt; (default: 4420 or testnet: 14420)</source>
+        <translation>Sujungimo klausymas prijungčiai  &lt;port&gt; (pagal nutylėjimą: 45444 arba testnet: 14420)</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -2270,8 +2270,8 @@ Adresas: %4</translation>
     </message>
     <message>
         <location line="+27"/>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 42000 or testnet: 142000)</source>
-        <translation>Klausymas JSON-RPC sujungimui prijungčiai &lt;port&gt; (pagal nutylėjimą: 42000 or testnet: 142000)</translation>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 44200 or testnet: 144200)</source>
+        <translation>Klausymas JSON-RPC sujungimui prijungčiai &lt;port&gt; (pagal nutylėjimą: 44200 or testnet: 144200)</translation>
     </message>
     <message>
         <location line="+37"/>
@@ -2298,13 +2298,13 @@ Adresas: %4</translation>
         <source>%s, you must set a rpcpassword in the configuration file:
 %s
 It is recommended you use the following random password:
-rpcuser=potcoinrpc
+rpcuser=cheebacoinrpc
 rpcpassword=%s
 (you do not need to remember this password)
 The username and password MUST NOT be the same.
 If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
-for example: alertnotify=echo %%s | mail -s &quot;Potcoin Alert&quot; admin@foo.com
+for example: alertnotify=echo %%s | mail -s &quot;Cheebacoin Alert&quot; admin@foo.com
 </source>
         <translation type="unfinished"/>
     </message>
@@ -2320,7 +2320,7 @@ for example: alertnotify=echo %%s | mail -s &quot;Potcoin Alert&quot; admin@foo.
     </message>
     <message>
         <location line="+3"/>
-        <source>Cannot obtain a lock on data directory %s. Potcoin is probably already running.</source>
+        <source>Cannot obtain a lock on data directory %s. Cheebacoin is probably already running.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2365,8 +2365,8 @@ for example: alertnotify=echo %%s | mail -s &quot;Potcoin Alert&quot; admin@foo.
     </message>
     <message>
         <location line="+3"/>
-        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Potcoin will not work properly.</source>
-        <translation>Įspėjimas: Patikrinkite, kad kompiuterio data ir laikas yra teisingi.Jei Jūsų laikrodis neteisingai nustatytas Potcoin, veiks netinkamai.</translation>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Cheebacoin will not work properly.</source>
+        <translation>Įspėjimas: Patikrinkite, kad kompiuterio data ir laikas yra teisingi.Jei Jūsų laikrodis neteisingai nustatytas Cheebacoin, veiks netinkamai.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2615,8 +2615,8 @@ for example: alertnotify=echo %%s | mail -s &quot;Potcoin Alert&quot; admin@foo.
     </message>
     <message>
         <location line="+5"/>
-        <source>SSL options: (see wiki.potcoin.com for SSL setup instructions)</source>
-        <translation>SSL opcijos (žr.e Potcoin Wiki for SSL setup instructions)</translation>
+        <source>SSL options: (see wiki.cheebacoin.com for SSL setup instructions)</source>
+        <translation>SSL opcijos (žr.e Cheebacoin Wiki for SSL setup instructions)</translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2805,13 +2805,13 @@ for example: alertnotify=echo %%s | mail -s &quot;Potcoin Alert&quot; admin@foo.
     </message>
     <message>
         <location line="+1"/>
-        <source>Error loading wallet.dat: Wallet requires newer version of Potcoin</source>
-        <translation> wallet.dat pakrovimo klaida,  wallet.dat reikalauja naujasnės Potcoin versijos</translation>
+        <source>Error loading wallet.dat: Wallet requires newer version of Cheebacoin</source>
+        <translation> wallet.dat pakrovimo klaida,  wallet.dat reikalauja naujasnės Cheebacoin versijos</translation>
     </message>
     <message>
         <location line="+93"/>
-        <source>Wallet needed to be rewritten: restart Potcoin to complete</source>
-        <translation>Piniginė turi būti prrašyta: įvykdymui perkraukite Potcoin</translation>
+        <source>Wallet needed to be rewritten: restart Cheebacoin to complete</source>
+        <translation>Piniginė turi būti prrašyta: įvykdymui perkraukite Cheebacoin</translation>
     </message>
     <message>
         <location line="-95"/>
@@ -2870,8 +2870,8 @@ for example: alertnotify=echo %%s | mail -s &quot;Potcoin Alert&quot; admin@foo.
     </message>
     <message>
         <location line="-25"/>
-        <source>Unable to bind to %s on this computer. Potcoin is probably already running.</source>
-        <translation>Nepavyko susieti šiame kompiuteryje prievado %s. Potcoin tikriausiai jau veikia.</translation>
+        <source>Unable to bind to %s on this computer. Cheebacoin is probably already running.</source>
+        <translation>Nepavyko susieti šiame kompiuteryje prievado %s. Cheebacoin tikriausiai jau veikia.</translation>
     </message>
     <message>
         <location line="+64"/>
